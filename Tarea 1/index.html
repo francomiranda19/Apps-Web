@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tarea 1</title>
+
+    <style>
+
+        .titulo {
+            text-align: center;
+        }
+
+        .subtitulo {
+            font-size: 20px;
+        }
+
+        .seleccion {
+            font-size: 15px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<h1 class="titulo">RECUERDA CAMBIAR ESTO Y EL TITULO EN EL HEAD</h1>   
+
+<div>
+    <form method="post" action="">
+        <div class="subtitulo">Lugar
+            <div class="seleccion">Región</div>
+            <select name="region" required>
+                <option value="">Elija una región:</option>
+                <script>
+                    let regiones = [
+                        "Región de Arica y Parinacota",
+                        "Región de Tarapacá",
+                        "Región de Antofagasta",
+                        "Región de Atacama",
+                        "Región de Coquimbo",
+                        "Región de Valparaíso",
+                        "Región Metropolitana de Santiago",
+                        "Región del Libertador General Bernardo O'Higgins",
+                        "Región del Maule",
+                        "Región del Ñuble",
+                        "Región del Biobío",
+                        "Región de La Araucanía",
+                        "Región de Los Ríos",
+                        "Región de Los Lagos",
+                        "Región de Aysén del General Carlos Ibáñez del Campo",
+                        "Región de Magallanes y la Antártica Chilena"]
+                    for (i in regiones) {
+                        document.write("<option>" + regiones[i] + "</option>");
+                    }
+                </script>
+            </select>
+            <div class="seleccion">Comuna</div>
+            <div class="seleccion">Sector</div>
+            <input type="text" name="sector" size="200" maxlength="100"></textarea>
+        </div>
+        <div class="subtitulo">Datos de Contacto
+            <div class="seleccion">Nombre</div>
+            <input type="text" name="nombre" size="100" maxlength="200" required>
+            <div class="seleccion">Email</div>
+            <input type="email" name="email" size="100" required>
+            <div class="seleccion">Número de celular</div>
+            <input type="text" name="celular" size="15">
+        </div>
+        <div class="subtitulo">Información de avistamiento
+            <div class="seleccion">Día y hora</div>
+            <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-dia hora:minuto" required>
+            <div class="seleccion">Tipo</div>
+            <select name="tipo-avistamiento" required>
+                <option value="">Elija una opción:</option>
+                <option value="">No sé</option>
+                <option value="">Insecto</option>
+                <option value="">Arácnido</option>
+                <option value="">Miriápodo</option>
+            </select>
+            <div class="seleccion">Estado</div>
+            <select name="estado-avistamiento" required>
+                <option>Elija una opción:</option>
+                <option>No sé</option>
+                <option>Vivo</option>
+                <option>Muerto</option>
+            </select>
+            <div class="seleccion">Foto</div>
+            <input type="file" name="foto-avistamiento" required>
+        </div>
+    </form>
+</div>
+
+</body>
+
+</html>
