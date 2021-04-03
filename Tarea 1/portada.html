@@ -7,14 +7,129 @@
 
     <style>
 
+        /*Eliminamos los margenes y paddings que agrega el navegador por defecto*/
+        * {
+            padding: 0;
+            margin: 0;
+        }
 
+        header {
+            background: rgba(0,0,0,0.9);
+            width: 100%;
+            position: absolute;
+        }
+
+        nav {
+            float: left; /* Desplazamos el nav hacia la izquierda */
+        }
+
+        nav ul {
+            list-style: none;
+            overflow: hidden; /* Limpiamos errores de float */
+        }
+
+        nav ul li {
+            float: left;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+        }
+
+        nav ul li a {
+            display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+            padding: 20px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav ul li:hover {
+            background: #3ead47;
+        }
+
+        table {
+            text-align: center;
+            margin: 15px auto;
+        }
+
+        td {
+            width: 250px;
+            height: 50px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-spacing: 0;
+        }
+
+        img {
+            width: 150px;
+            height: 150px;
+        }
+
+        h3 {
+            margin-top: 70px;
+        }
 
     </style>
 </head>
 
 <body>
 
+<h1>Bienvenido a la mejor página de información de avistamientos del mundo!</h1>
+<header>
+    <nav>
+        <ul>
+            <li><a href="informar-avistamiento.html">Informar avistamiento</a></li>
+            <li><a href="listado-avistamientos.html">Listado de avistamientos</a></li>
+            <li><a href="estadisticas.html">Estadísticas</a></li>
+        </ul>
+    </nav>
+</header>
 
+<h3>Últimos 5 avistamientos informados:</h3>
+<table>
+    <tr>
+        <th>Fecha - Hora</th>
+        <th>Comuna</th>
+        <th>Sector</th>
+        <th>Tipo</th>
+        <th>Foto</th>
+    </tr>
+    <tr>
+        <td>2021 - 04 - 03<br>18:20</td>
+        <td>Pudahuel</td>
+        <td>Ciudad de los Valles</td>
+        <td>Arácnido</td>
+        <td><img src="https://www.gardentech.com/-/media/Images/GardenTech-NA/US/pest-id/updated-bug-post/spider/Brown-Recluse-Spider.jpg?h=800&la=es&w=867&hash=6292A0DDF8AB5C03A65158338098DAC8A2184378"></td>
+    </tr>
+    <tr>
+        <td>2021 - 04 - 04<br>13:02</td>
+        <td>Santiago</td>
+        <td>Santiago Centro</td>
+        <td>Miriápodo</td>
+        <td><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Mariapodos.jpeg"></td>
+    </tr>
+    <tr>
+        <td>2021 - 04 - 06<br>21:30</td>
+        <td>Quilicura</td>
+        <td>Mall de Quilicura</td>
+        <td>Insecto</td>
+        <td><img src="https://www.dondevive.org/wp-content/uploads/2016/05/insectos.jpg"></td>
+    </tr>
+    <tr>
+        <td>2021 - 04 - 08<br>15:00</td>
+        <td>Santiago</td>
+        <td>FCFM</td>
+        <td>Arácnido</td>
+        <td><img src="https://estaticos.muyinteresante.es/media/cache/760x570_thumb/uploads/images/gallery/59772c085bafe8df833c986c/arana.jpg"></td>
+    </tr>
+    <tr>
+        <td>2021 - 04 - 10<br>12:00</td>
+        <td>Las Condes</td>
+        <td>Parque Arauco</td>
+        <td>No sé</td>
+        <td><img src="https://i.pinimg.com/originals/84/81/59/848159c8393dbdc3876fe1ed3c926350.jpg"></td>
+    </tr>
+</table>
 
 </body>
 
