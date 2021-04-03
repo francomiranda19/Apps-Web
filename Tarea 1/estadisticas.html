@@ -7,14 +7,56 @@
 
     <style>
 
+    img {
+        width: 25%;
+        height: 25%;
+    }
 
+    .contenedor-imagenes {
+        display: flex;
+    }
+
+    ul {
+        list-style: none;
+        overflow: hidden; /* Limpiamos errores de float */
+    }
+
+    ul li {
+        background: rgba(0,0,0,0.9);
+        float: left;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        margin-left: 27%;
+    }
+
+    ul li a {
+        display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+        padding: 20px;
+        color: #fff;
+        text-decoration: none;
+    }
+
+    ul li:hover {
+        background: #3ead47;
+    }
 
     </style>
 </head>
 
 <body>
+    
+    <h1>Estadísticas</h1>
+    <div class="contenedor-imagenes">
+        <img src="images/grafico-1.png">
+        <img src="images/grafico-2.png">
+        <img src="images/grafico-2.png">
+    </div>
 
-
+    <div class="boton">
+        <ul>
+            <li><a href="portada.html">Volver al inicio</a></li>
+        </ul>
+    </div>
 
 </body>
 
