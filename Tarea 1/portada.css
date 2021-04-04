@@ -1,0 +1,61 @@
+/*Eliminamos los margenes y paddings que agrega el navegador por defecto*/
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background: rgba(0,0,0,0.9);
+    width: 100%;
+    position: absolute;
+}
+
+nav {
+    float: left; /* Desplazamos el nav hacia la izquierda */
+}
+
+nav ul {
+    list-style: none;
+    overflow: hidden; /* Limpiamos errores de float */
+}
+
+nav ul li {
+    float: left;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+}
+
+nav ul li a {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li:hover {
+    background: #3ead47;
+}
+
+table {
+    text-align: center;
+    margin: 15px auto;
+}
+
+td {
+    width: 200px;
+    height: 50px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-spacing: 0;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+
+h3 {
+    margin-top: 70px;
+}
