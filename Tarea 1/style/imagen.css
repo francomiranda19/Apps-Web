@@ -1,0 +1,28 @@
+img {
+    width: 800px;
+    height: 600px;
+    display: block;
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    overflow: hidden; /* Limpiamos errores de float */
+}
+
+ul li {
+    background: rgba(0,0,0,0.9);
+    float: left;
+    font-size: 24px;
+}
+
+ul li a {
+    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul li:hover {
+    background: #3ead47;
+}
