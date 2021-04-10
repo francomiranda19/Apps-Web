@@ -349,78 +349,140 @@ let comunas_magallanes = [
 ]
 
 function calcular_comunas() {
-    var region = document.formulario.region.selectedIndex;
-    var comunas = document.formulario.comuna;
+    let region = document.formulario.region.selectedIndex;
+    let comunas = document.formulario.comuna;
 
     // Se eliminan comunas pertenecientes a otras regiones
     for (i in comunas) {
         comunas.options.remove(i);
     }
 
+    comunas.options.add(new Option("Elija una opción"));
     // Se muestran comunas según su región
     if (region == 1) {
         for (i in comunas_arica_y_parinacota) {
-            comunas.options.add(new Option(comunas_arica_y_parinacota[i]))
+            comunas.options.add(new Option(comunas_arica_y_parinacota[i]));
         }
     } if (region == 2) {
         for (i in comunas_tarapaca) {
-            comunas.options.add(new Option(comunas_tarapaca[i]))
+            comunas.options.add(new Option(comunas_tarapaca[i]));
         }
     } if (region == 3) {
         for (i in comunas_antofagasta) {
-            comunas.options.add(new Option(comunas_antofagasta[i]))
+            comunas.options.add(new Option(comunas_antofagasta[i]));
         }
     } if (region == 4) {
         for (i in comunas_atacama) {
-            comunas.options.add(new Option(comunas_atacama[i]))
+            comunas.options.add(new Option(comunas_atacama[i]));
         }
     } if (region == 5) {
         for (i in comunas_coquimbo) {
-            comunas.options.add(new Option(comunas_coquimbo[i]))
+            comunas.options.add(new Option(comunas_coquimbo[i]));
         }
     } if (region == 6) {
         for (i in comunas_valparaiso) {
-            comunas.options.add(new Option(comunas_valparaiso[i]))
+            comunas.options.add(new Option(comunas_valparaiso[i]));
         }
     } if (region == 7) {
         for (i in comunas_metropolitana) {
-            comunas.options.add(new Option(comunas_metropolitana[i]))
+            comunas.options.add(new Option(comunas_metropolitana[i]));
         }
     } if (region == 8) {
         for (i in comunas_ohiggins) {
-            comunas.options.add(new Option(comunas_ohiggins[i]))
+            comunas.options.add(new Option(comunas_ohiggins[i]));
         }
     } if (region == 9) {
         for (i in comunas_maule) {
-            comunas.options.add(new Option(comunas_maule[i]))
+            comunas.options.add(new Option(comunas_maule[i]));
         }
     } if (region == 10) {
         for (i in comunas_nuble) {
-            comunas.options.add(new Option(comunas_nuble[i]))
+            comunas.options.add(new Option(comunas_nuble[i]));
         }
     } if (region == 11) {
         for (i in comunas_biobio) {
-            comunas.options.add(new Option(comunas_biobio[i]))
+            comunas.options.add(new Option(comunas_biobio[i]));
         }
     } if (region == 12) {
         for (i in comunas_araucania) {
-            comunas.options.add(new Option(comunas_araucania[i]))
+            comunas.options.add(new Option(comunas_araucania[i]));
         }
     } if (region == 13) {
         for (i in comunas_rios) {
-            comunas.options.add(new Option(comunas_rios[i]))
+            comunas.options.add(new Option(comunas_rios[i]));
         }
     } if (region == 14) {
         for (i in comunas_lagos) {
-            comunas.options.add(new Option(comunas_lagos[i]))
+            comunas.options.add(new Option(comunas_lagos[i]));
         }
     } if (region == 15) {
         for (i in comunas_aysen) {
-            comunas.options.add(new Option(comunas_aysen[i]))
+            comunas.options.add(new Option(comunas_aysen[i]));
         }
     } if (region == 16) {
         for (i in comunas_magallanes) {
-            comunas.options.add(new Option(comunas_magallanes[i]))
+            comunas.options.add(new Option(comunas_magallanes[i]));
         }
+    }
+}
+
+function validar_nombre() {
+    let nombre = document.formulario.nombre.value;
+    let nombreRegex = /^[a-zA-Z\s]+$/;
+
+    // Si no se ingresa nombre, hay un error
+    if (nombre.length == 0) {
+        alert("Ingrese nombre");
+        return false;
+    }
+    // Si el nombre tiene más de 200 caracteres hay un error
+    if (nombre.length > 200) {
+        alert("Nombre demasiado largo");
+        return false;
+    }
+
+    // Se verifica que el nombre solo contenga letras
+    if (nombre.match(nombreRegex)) {
+        return true;
+    } else {
+        alert("Nombre inválido");
+        return false;
+    }
+}
+
+function validar_email() {
+    let email = document.formulario.email.value;
+    let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+    // Se testea que se cumpla el formato de email
+    if (email.match(emailRegex)) {
+        return true;
+    } else {
+        alert("Email incorrecto, no cumple formato");
+        return false;
+    }
+}
+
+function validar_celular() {
+    let cel = document.formulario.celular.value;
+    let celRegex = /^[+][0-9]+$/;
+
+    // Si no hay número de celular, se acepta
+    if (cel.length == 0) {
+        return true;
+    }
+
+    // Si el número de celular tiene largo mayor a 15, hay error
+    if (cel.length > 15) {
+        alert("Número de celular demasiado largo");
+        return false;
+    }
+
+    // Se testea que se solo hayan números y que el primer carácter sea un +
+    if (cel.match(celRegex)) {
+        return true;
+    } else {
+        alert("Número de celular inválido");
+        return false;
     }
 }

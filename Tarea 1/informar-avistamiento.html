@@ -40,6 +40,7 @@
             </div>
             <div class="entrada">
                 Comuna: <select name="comuna" required>
+                    <option>Elija una opción</option>
                 </select>
             </div>
             <div class="entrada">
@@ -48,13 +49,13 @@
         </div>
         <div class="datos-contacto"><b><u>Datos de contacto</u></b>
             <div class="entrada">
-                Nombre: <input type="text" name="nombre" size="100" maxlength="200" required>
+                Nombre: <input type="text" name="nombre" size="100" maxlength="200" required onchange="validar_nombre()">
             </div>
             <div class="entrada">
-                Email: <input type="email" name="email" size="100"required>
+                Email: <input type="email" name="email" size="100" required onchange="validar_email()">
             </div>
             <div class="entrada">
-                Número de celular: <input type="text" name="celular" size="15">
+                Número de celular: <input type="text" name="celular" size="15" placeholder="+56912345678" onchange="validar_celular()">
             </div>
         </div>
         <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
