@@ -14,8 +14,12 @@ body {
     background: #78e08f;
 }
 
+.graficos {
+    padding: 10px;
+}
+
 .grafico {
-    margin: 10px auto 20px auto;
+    margin: 0px auto 20px auto;
 }
 
 img {
