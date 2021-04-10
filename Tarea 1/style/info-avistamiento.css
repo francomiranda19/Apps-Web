@@ -4,19 +4,50 @@
     margin: 0;
 }
 
+header {
+    background: #b8e994;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+body {
+    background: #78e08f;
+}
+
+.informacion {
+    margin: auto;
+    width: 350px;
+    text-align: center;
+    padding: 15px;
+}
+
+.datos-contacto {
+    margin-bottom: 15px;
+}
+
+.lugar {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.info-avis {
+    margin-bottom: 10px;
+}
+
 ul {
     list-style: none;
-    overflow: hidden; /* Limpiamos errores de float */
+    overflow: hidden;
 }
 
 ul li {
     background: rgba(0,0,0,0.9);
-    float: left;
-    font-size: 18px;
+    font-size: 24px;
+    margin: 0px auto 10px 10px;
+    text-align: center;
 }
 
 ul li a {
-    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    display: block;
     padding: 20px;
     color: #fff;
     text-decoration: none;
@@ -29,4 +60,20 @@ ul li:hover {
 img {
     width: 320px;
     height: 240px;
+    border-radius: 10px;
+    box-shadow: #00000012 0 0 5px 6px;
+}
+
+.boton-portada {
+    width: 255px;
+    position: absolute;
+    top: 1015px;
+    left: 430px;
+}
+
+.boton-listado {
+    width: 405px;
+    position: absolute;
+    top: 1015px;
+    left: 700px;
 }
