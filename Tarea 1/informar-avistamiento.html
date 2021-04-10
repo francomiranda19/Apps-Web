@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Informar avistamiento</title>
     <link rel="stylesheet" href="style/informar-avistamiento.css">
+    <script src="scripts/informar-avistamiento.js"></script>
 </head>
 
 <body>
@@ -14,45 +15,72 @@
 </header>
 
 <div class="formulario">
-    <form method="post" action="">
-        <div class="subtitulo">Lugar
-            <div class="seleccion">Región</div>
-            <select name="region" required>
-                <option value="">Elija una región:</option>
-                <script src="scripts/informar-avistamiento.js"></script>
-            </select>
-            <div class="seleccion">Comuna</div>
-            <div class="seleccion">Sector</div>
-            <input type="text" name="sector" size="200" maxlength="100"></textarea>
+    <form name="formulario" method="post" action="">
+        <div class="lugar"><b><u>Lugar</u></b><br>
+            <div class="entrada">
+                Región: <select name="region" required onchange="calcular_comunas()">
+                    <option>Elija una opción</option>
+                    <option>Región de Arica y Parinacota</option>
+                    <option>Región de Tarapacá</option>
+                    <option>Región de Antofagasta</option>
+                    <option>Región de Atacama</option>
+                    <option>Región de Coquimbo</option>
+                    <option>Región de Valparaíso</option>
+                    <option>Región Metropolitana de Santiago</option>
+                    <option>Región del Libertador General Bernardo O'Higgins</option>
+                    <option>Región del Maule</option>
+                    <option>Región del Ñuble</option>
+                    <option>Región del Biobío</option>
+                    <option>Región de La Araucanía</option>
+                    <option>Región de Los Ríos</option>
+                    <option>Región de Los Lagos</option>
+                    <option>Región de Aysén del General Carlos Ibáñez del Campo</option>
+                    <option>Región de Magallanes y la Antártica Chilena</option>
+                </select>
+            </div>
+            <div class="entrada">
+                Comuna: <select name="comuna" required>
+                </select>
+            </div>
+            <div class="entrada">
+                Sector: <input type="text" name="sector" size="200" maxlength="100">
+            </div>
         </div>
-        <div class="subtitulo">Datos de Contacto
-            <div class="seleccion">Nombre</div>
-            <input type="text" name="nombre" size="100" maxlength="200" required>
-            <div class="seleccion">Email</div>
-            <input type="email" name="email" size="100" required>
-            <div class="seleccion">Número de celular</div>
-            <input type="text" name="celular" size="15">
+        <div class="datos-contacto"><b><u>Datos de contacto</u></b>
+            <div class="entrada">
+                Nombre: <input type="text" name="nombre" size="100" maxlength="200" required>
+            </div>
+            <div class="entrada">
+                Email: <input type="email" name="email" size="100"required>
+            </div>
+            <div class="entrada">
+                Número de celular: <input type="text" name="celular" size="15">
+            </div>
         </div>
-        <div class="subtitulo">Información de avistamiento
-            <div class="seleccion">Día y hora</div>
-            <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-dia hora:minuto" required>
-            <div class="seleccion">Tipo</div>
-            <select name="tipo-avistamiento" required>
-                <option value="">Elija una opción:</option>
-                <option value="">No sé</option>
-                <option value="">Insecto</option>
-                <option value="">Arácnido</option>
-                <option value="">Miriápodo</option>
-            </select>
-            <div class="seleccion">Estado</div>
-            <select name="estado-avistamiento" required>
-                <option>Elija una opción:</option>
-                <option>No sé</option>
-                <option>Vivo</option>
-                <option>Muerto</option>
-            </select>
-            <div class="seleccion">Foto</div>
-            <input type="file" name="foto-avistamiento" required>
+        <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
+            <div class="entrada">
+                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-dia hora:minuto" required>
+            </div>
+            <div class="entrada">
+                Tipo: <select name="tipo-avistamiento" required>
+                    <option>Elija una opción</option>
+                    <option>Arácnido</option>
+                    <option>Insecto</option>
+                    <option>Miriápodo</option>
+                    <option>No sé</option>
+                </select>
+            </div>
+            <div class="entrada">
+                Estado: <select name="estado-avistamiento" required>
+                    <option>Elija una opción</option>
+                    <option>Vivo</option>
+                    <option>Muerto</option>
+                    <option>No sé</option>
+                </select>
+            </div>
+            <div class="entrada">
+                Foto: <input type="file" name="foto-avistamiento" max required>
+            </div>
         </div>
     </form>
 </div>
@@ -62,7 +90,6 @@
         <li><a href="informar-avistamiento.html">Informar otro avistamiento en este sector</a></li>
     </ul>
 </div>
-
 <div>
     <ul>
         <li><a href="listado-avistamientos.html" onclick="alert('¿Está seguro que desea enviar esta información?')">Enviar información de avistamiento</a></li>

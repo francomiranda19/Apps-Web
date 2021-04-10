@@ -18,6 +18,14 @@ body {
     padding: 10px;
 }
 
+.lugar, .datos-contacto, .info-avistamiento {
+    margin-bottom: 10px;
+}
+
+.entrada {
+    margin: 5px auto;
+}
+
 ul {
     list-style: none;
     overflow: hidden;
