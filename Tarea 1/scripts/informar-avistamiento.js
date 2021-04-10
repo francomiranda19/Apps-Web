@@ -424,6 +424,32 @@ function calcular_comunas() {
             comunas.options.add(new Option(comunas_magallanes[i]));
         }
     }
+
+    validar_region()
+}
+
+function validar_region() {
+    let i = document.formulario.region.selectedIndex;
+
+    // Se verifica que se haya seleccionado una región
+    if (i == 0) {
+        alert("Debe elegir una región");
+        return false
+    } else {
+        return true;
+    }
+}
+
+function validar_comuna() {
+    let i = document.formulario.comuna.selectedIndex;
+
+    // Se verifica que se haya seleccionado una comuna
+    if (i == 0) {
+        alert("Debe elegir una comuna");
+        return false;
+    } else {
+        return true;
+    }
 }
 
 function validar_sector() {
