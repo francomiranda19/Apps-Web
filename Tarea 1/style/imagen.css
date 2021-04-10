@@ -4,11 +4,17 @@
     margin: 0;
 }
 
+body {
+    background: #78e08f;
+}
+
 img {
     width: 800px;
     height: 600px;
     display: block;
-    margin: auto;
+    margin: 45px auto 0px auto;
+    border-radius: 50px;
+    box-shadow: #00000012 0 0 5px 6px;
 }
 
 ul {
@@ -20,6 +26,8 @@ ul li {
     background: rgba(0,0,0,0.9);
     float: left;
     font-size: 24px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 ul li a {
