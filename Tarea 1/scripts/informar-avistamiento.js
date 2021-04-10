@@ -426,23 +426,46 @@ function calcular_comunas() {
     }
 }
 
+function validar_sector() {
+    let sec = document.formulario.sector.value;
+    let secRegex = /^[0-9a-zA-Z\s]+$/;
+
+    // Si no se ingresó sector, está correcto
+    if (sec.length == 0) {
+        return true;
+    }
+    // Si el sector supera los 100 caracteres hay un error
+    if (sec.length > 100) {
+        alert("Nombre del sector demasiado largo");
+        return false;
+    }
+
+    // Se verifica que el sector solo posea caracteres alfa numéricos
+    if (sec.match(secRegex)) {
+        return true;
+    } else {
+        alert("Nombre del sector inválido");
+        return false;
+    }
+}
+
 function validar_nombre() {
-    let nombre = document.formulario.nombre.value;
-    let nombreRegex = /^[a-zA-Z\s]+$/;
+    let name = document.formulario.nombre.value;
+    let nameRegex = /^[a-zA-Z\s]+$/;
 
     // Si no se ingresa nombre, hay un error
-    if (nombre.length == 0) {
+    if (name.length == 0) {
         alert("Ingrese nombre");
         return false;
     }
     // Si el nombre tiene más de 200 caracteres hay un error
-    if (nombre.length > 200) {
+    if (name.length > 200) {
         alert("Nombre demasiado largo");
         return false;
     }
 
     // Se verifica que el nombre solo contenga letras
-    if (nombre.match(nombreRegex)) {
+    if (name.match(nameRegex)) {
         return true;
     } else {
         alert("Nombre inválido");
@@ -451,11 +474,16 @@ function validar_nombre() {
 }
 
 function validar_email() {
-    let email = document.formulario.email.value;
-    let emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+    let correo = document.formulario.email.value;
+    let correoRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
+    // Si el email tiene más de 100 caracteres hay un error
+    if (correo.length > 100) {
+        alert("Email demasiado largo");
+        return false;
+    }
     // Se testea que se cumpla el formato de email
-    if (email.match(emailRegex)) {
+    if (correo.match(correoRegex)) {
         return true;
     } else {
         alert("Email incorrecto, no cumple formato");
