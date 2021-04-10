@@ -4,6 +4,20 @@
     margin: 0;
 }
 
+header {
+    background: #b8e994;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+body {
+    background: #78e08f;
+}
+
+.formulario {
+    padding: 10px;
+}
+
 ul {
     list-style: none;
     overflow: hidden;
@@ -13,6 +27,7 @@ ul li {
     background: rgba(0,0,0,0.9);
     float: left;
     font-size: 18px;
+    text-align: center;
 }
 
 ul li a {
