@@ -13,6 +13,7 @@ header {
 table {
     text-align: center;
     margin: 15px auto;
+    box-shadow: #00000012 0 0 5px 6px;
 }
 
 body {
@@ -32,7 +33,7 @@ table, th, td {
 
 ul {
     list-style: none;
-    overflow: hidden; /* Limpiamos errores de float */
+    overflow: hidden;
 }
 
 ul li {
@@ -44,7 +45,7 @@ ul li {
 }
 
 ul li a {
-    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    display: block;
     padding: 20px;
     color: #fff;
     text-decoration: none;

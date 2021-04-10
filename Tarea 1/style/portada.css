@@ -4,19 +4,28 @@
     margin: 0;
 }
 
+h1 {
+    background: #b8e994;padding: 10px;
+    border: 1px solid black;
+}
+
 header {
     background: rgba(0,0,0,0.9);
     width: 100%;
     position: absolute;
 }
 
+body {
+    background: #78e08f;
+}
+
 nav {
-    float: left; /* Desplazamos el nav hacia la izquierda */
+    float: left;
 }
 
 nav ul {
     list-style: none;
-    overflow: hidden; /* Limpiamos errores de float */
+    overflow: hidden;
 }
 
 nav ul li {
@@ -25,7 +34,7 @@ nav ul li {
 }
 
 nav ul li a {
-    display: block; /* Convertimos los elementos a en elementos bloque para manipular el padding */
+    display: block;
     padding: 20px;
     color: #fff;
     text-decoration: none;
@@ -37,12 +46,14 @@ nav ul li:hover {
 
 table {
     text-align: center;
-    margin: 15px auto;
+    margin: auto;
+    margin-bottom: 25px;
+    box-shadow: #00000012 0 0 5px 6px;
 }
 
 td {
     width: 200px;
-    height: 50px;
+    height: 150px;
 }
 
 table, th, td {
@@ -51,10 +62,13 @@ table, th, td {
 }
 
 img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
+    border-radius: 10px;
+    box-shadow: #00000012 0 0 5px 6px;
 }
 
 h3 {
-    margin-top: 70px;
+    margin-top: 60px;
+    padding: 10px;
 }
