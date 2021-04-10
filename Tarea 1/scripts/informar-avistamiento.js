@@ -503,6 +503,11 @@ function validar_email() {
     let correo = document.formulario.email.value;
     let correoRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
+    if (correo.length == 0) {
+        alert("Debe ingresar email");
+        return false;
+    }
+
     // Si el email tiene más de 100 caracteres hay un error
     if (correo.length > 100) {
         alert("Email demasiado largo");
@@ -538,5 +543,51 @@ function validar_celular() {
     } else {
         alert("Número de celular inválido");
         return false;
+    }
+}
+
+function validar_dia_hora() {
+    let fecha = document.getElementById("dia-hora").value;
+    let fechaRegex = /^\d{2,4}\-\d{1,2}\-\d{1,2}[\s]([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
+
+    // Si no se ingresó fecha, hay error
+    if (fecha.length == 0) {
+        alert("Debe ingresar fecha y hora");
+        return false;
+    }
+    // Si la fecha ingresada es demasiado larga, hay error
+    if (fecha.length > 20) {
+        alert("Día y hora ingresados son demasiado largos");
+        return false;
+    }
+
+    // Se verifica que se cumpla el formato pedido
+    if (fecha.match(fechaRegex)) {
+        return true;
+    } else {
+        alert("No cumple el formato solicitado");
+        return false;
+    }
+}
+
+function validar_tipo() {
+    let i = document.getElementById("tipo").selectedIndex;
+    // Se verifica que se haya seleccionado una comuna
+    if (i == 0) {
+        alert("Debe elegir un tipo");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validar_estado() {
+    let i = document.getElementById("estado").selectedIndex;
+    // Se verifica que se haya seleccionado una comuna
+    if (i == 0) {
+        alert("Debe elegir un estado");
+        return false;
+    } else {
+        return true;
     }
 }

@@ -60,10 +60,10 @@
         </div>
         <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
             <div class="entrada">
-                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-dia hora:minuto" required>
+                Día y hora: <input type="text" id="dia-hora" name="dia-hora-avistamiento" size="20" placeholder="año-mes-día hora:minuto" required onchange="validar_dia_hora()">
             </div>
             <div class="entrada">
-                Tipo: <select name="tipo-avistamiento" required>
+                Tipo: <select id="tipo" name="tipo-avistamiento" required onchange="validar_tipo()">
                     <option>Elija una opción</option>
                     <option>Arácnido</option>
                     <option>Insecto</option>
@@ -72,7 +72,7 @@
                 </select>
             </div>
             <div class="entrada">
-                Estado: <select name="estado-avistamiento" required>
+                Estado: <select id="estado" name="estado-avistamiento" required onchange="validar_estado()">
                     <option>Elija una opción</option>
                     <option>Vivo</option>
                     <option>Muerto</option>
