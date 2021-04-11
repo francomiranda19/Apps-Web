@@ -26,6 +26,31 @@ body {
     margin: 5px auto;
 }
 
+.foto {
+    width: 265px;
+    position: absolute;
+    left: 50px;
+}
+
+.boton-agregar {
+    position: absolute;
+    top: 370px;
+    left: 350px;
+    cursor: pointer;
+}
+
+.boton-avistamiento {
+    position: absolute;
+    top: 550px;
+    margin-left: 10px;
+}
+
+.boton-enviar {
+    position: absolute;
+    top: 620px;
+    margin-left: 10px;
+}
+
 ul {
     list-style: none;
     overflow: hidden;

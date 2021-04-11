@@ -39,31 +39,31 @@
                 </select>
             </div>
             <div class="entrada">
-                Comuna: <select name="comuna" required onchange="validar_comuna()" onchange="validar_region()">
+                Comuna: <select name="comuna" required onchange="validar_comuna()">
                     <option>Elija una opción</option>
                 </select>
             </div>
             <div class="entrada">
-                Sector: <input type="text" name="sector" size="200" maxlength="100" onchange="validar_sector()">
+                Sector: <input type="text" name="sector" size="200" maxlength="100">
             </div>
         </div>
         <div class="datos-contacto"><b><u>Datos de contacto</u></b>
             <div class="entrada">
-                Nombre: <input type="text" name="nombre" size="100" maxlength="200" required onchange="validar_nombre()">
+                Nombre: <input type="text" name="nombre" size="100" maxlength="200" required>
             </div>
             <div class="entrada">
-                Email: <input type="email" name="email" size="100" required onchange="validar_email()">
+                Email: <input type="email" name="email" size="100" required>
             </div>
             <div class="entrada">
-                Número de celular: <input type="text" name="celular" size="15" placeholder="+56912345678" onchange="validar_celular()">
+                Número de celular: <input type="text" name="celular" size="15" placeholder="+56912345678">
             </div>
         </div>
         <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
             <div class="entrada">
-                Día y hora: <input type="text" id="dia-hora" name="dia-hora-avistamiento" size="20" placeholder="año-mes-día hora:minuto" required onchange="validar_dia_hora()">
+                Día y hora: <input type="text" id="dia-hora" name="dia-hora-avistamiento" size="20" placeholder="año-mes-día hora:minuto" required>
             </div>
             <div class="entrada">
-                Tipo: <select id="tipo" name="tipo-avistamiento" required onchange="validar_tipo()">
+                Tipo: <select id="tipo" name="tipo-avistamiento" required>
                     <option>Elija una opción</option>
                     <option>Arácnido</option>
                     <option>Insecto</option>
@@ -72,7 +72,7 @@
                 </select>
             </div>
             <div class="entrada">
-                Estado: <select id="estado" name="estado-avistamiento" required onchange="validar_estado()">
+                Estado: <select id="estado" name="estado-avistamiento" required>
                     <option>Elija una opción</option>
                     <option>Vivo</option>
                     <option>Muerto</option>
@@ -80,20 +80,25 @@
                 </select>
             </div>
             <div class="entrada">
-                Foto: <input type="file" name="foto-avistamiento" required>
+                Foto: <input class="foto" type="file" id="foto" name="foto-avistamiento" required>
+                <div class="boton-agregar" id="boton-agregar" onclick="agregar_foto()">
+                    <ul>
+                        <li><a>Agregar otra foto</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </form>
 </div>
 
-<div>
+<div class="boton-avistamiento">
     <ul>
         <li><a href="informar-avistamiento.html">Informar otro avistamiento en este sector</a></li>
     </ul>
 </div>
-<div>
+<div class="boton-enviar">
     <ul>
-        <li><a href="listado-avistamientos.html" onclick="alert('¿Está seguro que desea enviar esta información?')">Enviar información de avistamiento</a></li>
+        <li><a onclick="validar()">Enviar información de avistamiento</a></li>
     </ul>
 </div>
 

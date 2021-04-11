@@ -424,10 +424,22 @@ function calcular_comunas() {
             comunas.options.add(new Option(comunas_magallanes[i]));
         }
     }
-
-    validar_region()
 }
 
+let imagenes = 1;
+function agregar_foto() {
+    let imagen = document.getElementById("foto");
+    let boton = document.getElementById("boton-agregar");
+    
+    if (imagenes == 4) {
+        boton.style.display = "none";
+    } else {
+        imagenes++;
+    }
+}
+
+
+/*------------------------------ VALIDACIONES -------------------------------*/
 function validar_region() {
     let i = document.formulario.region.selectedIndex;
 
@@ -481,7 +493,7 @@ function validar_nombre() {
 
     // Si no se ingresa nombre, hay un error
     if (name.length == 0) {
-        alert("Ingrese nombre");
+        alert("Debe ingresar nombre");
         return false;
     }
     // Si el nombre tiene más de 200 caracteres hay un error
@@ -503,6 +515,7 @@ function validar_email() {
     let correo = document.formulario.email.value;
     let correoRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
+    // Si no se ingresó correo hay un error
     if (correo.length == 0) {
         alert("Debe ingresar email");
         return false;
@@ -552,7 +565,7 @@ function validar_dia_hora() {
 
     // Si no se ingresó fecha, hay error
     if (fecha.length == 0) {
-        alert("Debe ingresar fecha y hora");
+        alert("Debe ingresar día y hora");
         return false;
     }
     // Si la fecha ingresada es demasiado larga, hay error
@@ -565,7 +578,7 @@ function validar_dia_hora() {
     if (fecha.match(fechaRegex)) {
         return true;
     } else {
-        alert("No cumple el formato solicitado");
+        alert("Día y hora no cumple el formato solicitado");
         return false;
     }
 }
@@ -590,4 +603,28 @@ function validar_estado() {
     } else {
         return true;
     }
+}
+
+function validar_foto() {
+    let cantidad = document.getElementById("foto").files.length;
+
+    if (cantidad == 0) {
+        alert("Debe enviar al menos una foto");
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validar() {
+    validar_region();
+    validar_comuna();
+    validar_sector();
+    validar_nombre();
+    validar_email();
+    validar_celular();
+    validar_dia_hora();
+    validar_tipo();
+    validar_estado();
+    validar_foto();
 }
