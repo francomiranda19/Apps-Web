@@ -428,7 +428,7 @@ function calcular_comunas() {
 
 let imagenes = 1;
 function agregar_imagen() {
-    let file = document.getElementById("foto-" + imagenes);
+    let file = document.getElementsByName("foto-avistamiento")[0];
 
     // No se puede agregar otra foto si aún no se ha agregado una
     let cantidad = file.files.length;
@@ -439,14 +439,13 @@ function agregar_imagen() {
 
     // Se aumenta la cantidad de imagenes y se crea el nuevo input
     imagenes++;
-    let input = document.getElementById("foto-1");
+    let input = document.getElementsByName("foto-avistamiento")[0];
     let newInput = input.cloneNode();
-    let fotos = document.getElementById("imagenes");
-    let boton = document.getElementById("boton-agregar");
+    let fotos = document.getElementsByName("imagenes")[0];
+    let boton = document.getElementsByClassName("boton-agregar")[0];
 
     // Se setea nuevo id para el nuevo input
     // Se setea un nuevo input sin ningún archivo
-    newInput.setAttribute("id", "foto-" + imagenes);
     newInput.value = "";
     fotos.appendChild(newInput);
 
@@ -577,9 +576,9 @@ function validar_celular() {
 }
 
 function validar_dia_hora() {
-    let fecha = document.getElementById("dia-hora").value;
+    let fecha = document.getElementsByName("dia-hora-avistamiento")[0].value;
     let fechaRegex = /^\d{2,4}\-\d{1,2}\-\d{1,2}[\s]([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
-
+    
     // Si no se ingresó fecha, hay error
     if (fecha.length == 0) {
         alert("Debe ingresar día y hora");
@@ -601,7 +600,7 @@ function validar_dia_hora() {
 }
 
 function validar_tipo() {
-    let i = document.getElementById("tipo").selectedIndex;
+    let i = document.getElementsByName("tipo-avistamiento")[0].selectedIndex;
     // Se verifica que se haya seleccionado una comuna
     if (i == 0) {
         alert("Debe elegir un tipo");
@@ -612,7 +611,7 @@ function validar_tipo() {
 }
 
 function validar_estado() {
-    let i = document.getElementById("estado").selectedIndex;
+    let i = document.getElementsByName("estado-avistamiento")[0].selectedIndex;
     // Se verifica que se haya seleccionado una comuna
     if (i == 0) {
         alert("Debe elegir un estado");
@@ -623,7 +622,7 @@ function validar_estado() {
 }
 
 function validar_foto() {
-    let cantidad = document.getElementById("foto-1").files.length;
+    let cantidad = document.getElementsByName("foto-avistamiento")[0].files.length;
 
     // Si no se ha agregado ninguna foto, hay un error
     if (cantidad == 0) {
@@ -635,12 +634,11 @@ function validar_foto() {
 }
 
 function validar_extension_imagen() {
-    let file = document.getElementById("foto-" + imagenes);
-    let filePath = file.value;
+    let file = document.getElementsByName("foto-avistamiento")[0].value;
     var extensiones = /(.jpg|.jpeg|.png|.gif)$/i;
 
     // Se chequea si el archivo ingresado efectivamente es una imagen
-    if (!extensiones.exec(filePath)) {
+    if (!extensiones.exec(file)) {
         alert("El archivo ingresado no corresponde a una imagen");
         file.value = "";
         return false;

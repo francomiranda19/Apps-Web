@@ -60,10 +60,10 @@
         </div>
         <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
             <div class="entrada">
-                Día y hora: <input type="text" id="dia-hora" name="dia-hora-avistamiento" size="20" placeholder="año-mes-día hora:minuto" required>
+                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-día hora:minuto" required>
             </div>
             <div class="entrada">
-                Tipo: <select id="tipo" name="tipo-avistamiento" required>
+                Tipo: <select name="tipo-avistamiento" required>
                     <option>Elija una opción</option>
                     <option>Arácnido</option>
                     <option>Insecto</option>
@@ -72,28 +72,28 @@
                 </select>
             </div>
             <div class="entrada">
-                Estado: <select id="estado" name="estado-avistamiento" required>
+                Estado: <select name="estado-avistamiento" required>
                     <option>Elija una opción</option>
                     <option>Vivo</option>
                     <option>Muerto</option>
                     <option>No sé</option>
                 </select>
             </div>
-            <div class="entrada" id="imagenes">
-                Foto: <input class="foto" type="file" id="foto-1" name="foto-avistamiento" required onchange="validar_extension_imagen()">
+            <div class="entrada" name="imagenes">
+                Foto: <input class="foto" type="file" name="foto-avistamiento" required onchange="validar_extension_imagen()">
             </div>
         </div>
     </form>
 </div>
 
-<div class="boton-agregar" id="boton-agregar" onclick="agregar_imagen()">
+<div class="boton-agregar" onclick="agregar_imagen()">
     <ul>
         <li><a>Agregar otra foto</a></li>
     </ul>
 </div>
 <div class="boton-avistamiento">
     <ul>
-        <li><a href="informar-avistamiento.html">Informar otro avistamiento en este sector</a></li>
+        <li><a onclick="crear_nuevo_formulario()">Informar otro avistamiento en este sector</a></li>
     </ul>
 </div>
 <div class="boton-enviar">

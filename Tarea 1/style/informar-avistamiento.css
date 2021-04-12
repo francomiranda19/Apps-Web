@@ -36,22 +36,24 @@ body {
 }
 
 .boton-agregar {
-    position: absolute;
-    top: 370px;
+    position: relative;
+    top: -85px;
     left: 350px;
     cursor: pointer;
 }
 
 .boton-avistamiento {
-    position: absolute;
-    top: 550px;
+    position: relative;
+    top: -50px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 .boton-enviar {
-    position: absolute;
-    top: 620px;
+    position: relative;
+    top: -40px;
     margin-left: 10px;
+    cursor: pointer;
 }
 
 ul {
