@@ -534,12 +534,13 @@ function cerrar_ventana_emergente() {
 }
 
 /*------------------------------ VALIDACIONES -------------------------------*/
+let errores = "";
 function validar_region() {
     let i = document.getElementsByName("region")[0].selectedIndex;
 
     // Se verifica que se haya seleccionado una región
     if (i == 0) {
-        alert("Debe elegir una región");
+        errores += "Debe elegir una región\n"
         return false
     } else {
         return true;
@@ -551,7 +552,7 @@ function validar_comuna() {
 
     // Se verifica que se haya seleccionado una comuna
     if (i == 0) {
-        alert("Debe elegir una comuna");
+        errores += "Debe elegir una comuna\n";
         return false;
     } else {
         return true;
@@ -568,7 +569,7 @@ function validar_sector() {
     }
     // Si el sector supera los 100 caracteres hay un error
     if (sec.length > 100) {
-        alert("Nombre del sector demasiado largo");
+        errores += "Nombre del sector demasiado largo\n";
         return false;
     }
 
@@ -576,7 +577,7 @@ function validar_sector() {
     if (sec.match(secRegex)) {
         return true;
     } else {
-        alert("Nombre del sector inválido");
+        errores += "Nombre del sector inválido\n";
         return false;
     }
 }
@@ -587,12 +588,12 @@ function validar_nombre() {
 
     // Si no se ingresa nombre, hay un error
     if (name.length == 0) {
-        alert("Debe ingresar nombre");
+        errores += "Debe ingresar nombre\n";
         return false;
     }
     // Si el nombre tiene más de 200 caracteres hay un error
     if (name.length > 200) {
-        alert("Nombre demasiado largo");
+        errores += "Nombre demasiado largo\n";
         return false;
     }
 
@@ -600,7 +601,7 @@ function validar_nombre() {
     if (name.match(nameRegex)) {
         return true;
     } else {
-        alert("Nombre inválido");
+        errores += "Nombre inválido\n";
         return false;
     }
 }
@@ -611,20 +612,20 @@ function validar_email() {
 
     // Si no se ingresó correo hay un error
     if (correo.length == 0) {
-        alert("Debe ingresar email");
+        errores += "Debe ingresar email\n";
         return false;
     }
 
     // Si el email tiene más de 100 caracteres hay un error
     if (correo.length > 100) {
-        alert("Email demasiado largo");
+        errores += "Email demasiado largo\n";
         return false;
     }
     // Se testea que se cumpla el formato de email
     if (correo.match(correoRegex)) {
         return true;
     } else {
-        alert("Email incorrecto, no cumple formato");
+        errores += "Email incorrecto, no cumple formato\n";
         return false;
     }
 }
@@ -640,7 +641,7 @@ function validar_celular() {
 
     // Si el número de celular tiene largo mayor a 15, hay error
     if (cel.length > 15) {
-        alert("Número de celular demasiado largo");
+        errores += "Número de celular demasiado largo\n";
         return false;
     }
 
@@ -648,7 +649,7 @@ function validar_celular() {
     if (cel.match(celRegex)) {
         return true;
     } else {
-        alert("Número de celular inválido");
+        errores += "Número de celular inválido\n"
         return false;
     }
 }
@@ -659,12 +660,12 @@ function validar_dia_hora() {
     
     // Si no se ingresó fecha, hay error
     if (fecha.length == 0) {
-        alert("Debe ingresar día y hora");
+        errores += "Debe ingresar día y hora\n";
         return false;
     }
     // Si la fecha ingresada es demasiado larga, hay error
     if (fecha.length > 20) {
-        alert("Día y hora ingresados son demasiado largos");
+        errores += "Día y hora ingresados son demasiado largos\n";
         return false;
     }
 
@@ -672,7 +673,7 @@ function validar_dia_hora() {
     if (fecha.match(fechaRegex)) {
         return true;
     } else {
-        alert("Día y hora no cumple el formato solicitado");
+        errores += "Día y hora no cumple el formato solicitado\n";
         return false;
     }
 }
@@ -681,7 +682,7 @@ function validar_tipo() {
     let i = document.getElementsByName("tipo-avistamiento")[0].selectedIndex;
     // Se verifica que se haya seleccionado una comuna
     if (i == 0) {
-        alert("Debe elegir un tipo");
+        errores += "Debe elegir un tipo\n";
         return false;
     } else {
         return true;
@@ -692,7 +693,7 @@ function validar_estado() {
     let i = document.getElementsByName("estado-avistamiento")[0].selectedIndex;
     // Se verifica que se haya seleccionado una comuna
     if (i == 0) {
-        alert("Debe elegir un estado");
+        errores += "Debe elegir un estado\n";
         return false;
     } else {
         return true;
@@ -704,7 +705,7 @@ function validar_foto() {
 
     // Si no se ha agregado ninguna foto, hay un error
     if (cantidad == 0) {
-        alert("Debe enviar al menos una foto");
+        errores += "Debe enviar al menos una foto\n";
         return false;
     } else {
         return true;
@@ -727,16 +728,30 @@ function validar_extension_imagen() {
 }
 
 function validar() {
-    // Se realizan todas las validaciones necesarias
-    /*validar_region();
-    validar_comuna();
-    validar_sector();
-    validar_nombre();
-    validar_email();
-    validar_celular();
-    validar_dia_hora();
-    validar_tipo();
-    validar_estado();
-    validar_foto();*/
-    document.getElementsByName("ventana-emergente")[0].style.visibility = "visible";
+    // Se realizan todas las validaciones
+    let validaciones = [
+        validar_region(),
+        validar_comuna(),
+        validar_sector(),
+        validar_nombre(),
+        validar_email(),
+        validar_celular(),
+        validar_dia_hora(),
+        validar_tipo(),
+        validar_estado(),
+        validar_foto()
+    ]
+
+    // Si pasan todas las validaciones, se muestra la ventana emergente
+    const valueIsTrue = (element) => element == true;
+    if (validaciones.every(valueIsTrue)) {
+        document.getElementsByName("ventana-emergente")[0].style.visibility = "visible";
+        return true;
+    }
+    // Si no pasa alguna validacion, se muestran todos los errores
+    else {
+        alert(errores);
+        errores = "";
+        return false;
+    }
 }
