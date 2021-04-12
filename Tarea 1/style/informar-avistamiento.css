@@ -28,8 +28,11 @@ body {
 
 .foto {
     width: 265px;
-    position: absolute;
-    left: 50px;
+    display: block;
+    padding: 2px;
+    margin-left: 40px;
+    position: relative;
+    top: -20px;
 }
 
 .boton-agregar {
@@ -72,12 +75,4 @@ ul li a {
 
 ul li:hover {
     background: #034e3e;
-}
-
-.subtitulo {
-    font-size: 20px;
-}
-
-.seleccion {
-    font-size: 15px;
 }

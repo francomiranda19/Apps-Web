@@ -39,7 +39,7 @@
                 </select>
             </div>
             <div class="entrada">
-                Comuna: <select name="comuna" required onchange="validar_comuna()">
+                Comuna: <select name="comuna" required>
                     <option>Elija una opción</option>
                 </select>
             </div>
@@ -79,18 +79,18 @@
                     <option>No sé</option>
                 </select>
             </div>
-            <div class="entrada">
-                Foto: <input class="foto" type="file" id="foto" name="foto-avistamiento" required>
-                <div class="boton-agregar" id="boton-agregar" onclick="agregar_foto()">
-                    <ul>
-                        <li><a>Agregar otra foto</a></li>
-                    </ul>
-                </div>
+            <div class="entrada" id="imagenes">
+                Foto: <input class="foto" type="file" id="foto-1" name="foto-avistamiento" required onchange="validar_extension_imagen()">
             </div>
         </div>
     </form>
 </div>
 
+<div class="boton-agregar" id="boton-agregar" onclick="agregar_imagen()">
+    <ul>
+        <li><a>Agregar otra foto</a></li>
+    </ul>
+</div>
 <div class="boton-avistamiento">
     <ul>
         <li><a href="informar-avistamiento.html">Informar otro avistamiento en este sector</a></li>

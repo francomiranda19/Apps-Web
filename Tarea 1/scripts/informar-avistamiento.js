@@ -427,17 +427,34 @@ function calcular_comunas() {
 }
 
 let imagenes = 1;
-function agregar_foto() {
-    let imagen = document.getElementById("foto");
+function agregar_imagen() {
+    let file = document.getElementById("foto-" + imagenes);
+
+    // No se puede agregar otra foto si aún no se ha agregado una
+    let cantidad = file.files.length;
+    if (cantidad == 0) {
+        alert("Para agregar otra foto, debes agregar una primero");
+        return false;
+    }
+
+    // Se aumenta la cantidad de imagenes y se crea el nuevo input
+    imagenes++;
+    let input = document.getElementById("foto-1");
+    let newInput = input.cloneNode();
+    let fotos = document.getElementById("imagenes");
     let boton = document.getElementById("boton-agregar");
-    
-    if (imagenes == 4) {
+
+    // Se setea nuevo id para el nuevo input
+    // Se setea un nuevo input sin ningún archivo
+    newInput.setAttribute("id", "foto-" + imagenes);
+    newInput.value = "";
+    fotos.appendChild(newInput);
+
+    // Si ya se agregaron 5 fotos, el botón desaparece
+    if (imagenes == 5) {
         boton.style.display = "none";
-    } else {
-        imagenes++;
     }
 }
-
 
 /*------------------------------ VALIDACIONES -------------------------------*/
 function validar_region() {
@@ -606,8 +623,9 @@ function validar_estado() {
 }
 
 function validar_foto() {
-    let cantidad = document.getElementById("foto").files.length;
+    let cantidad = document.getElementById("foto-1").files.length;
 
+    // Si no se ha agregado ninguna foto, hay un error
     if (cantidad == 0) {
         alert("Debe enviar al menos una foto");
         return false;
@@ -616,7 +634,23 @@ function validar_foto() {
     }
 }
 
+function validar_extension_imagen() {
+    let file = document.getElementById("foto-" + imagenes);
+    let filePath = file.value;
+    var extensiones = /(.jpg|.jpeg|.png|.gif)$/i;
+
+    // Se chequea si el archivo ingresado efectivamente es una imagen
+    if (!extensiones.exec(filePath)) {
+        alert("El archivo ingresado no corresponde a una imagen");
+        file.value = "";
+        return false;
+    } else {
+        return true;
+    }
+}
+
 function validar() {
+    // Se realizan todas las validaciones necesarias
     validar_region();
     validar_comuna();
     validar_sector();
