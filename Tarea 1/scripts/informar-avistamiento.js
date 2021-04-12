@@ -439,9 +439,9 @@ function agregar_imagen() {
 
     // Se aumenta la cantidad de imagenes y se crea el nuevo input
     imagenes++;
-    let input = document.getElementsByName("foto-avistamiento")[0];
+    let input = document.getElementsByName("imagenes")[formularios - 1].childNodes[1];
     let newInput = input.cloneNode();
-    let fotos = document.getElementsByName("imagenes")[0];
+    let fotos = document.getElementsByName("imagenes")[formularios - 1];
     let boton = document.getElementsByClassName("boton-agregar")[0];
 
     // Se setea nuevo id para el nuevo input
@@ -451,12 +451,11 @@ function agregar_imagen() {
 
     // Si ya se agregaron 5 fotos, el botón desaparece
     if (imagenes == 5) {
-        boton.style.display = "none";
+        boton.style.visibility = "hidden";
     }
 }
 
 let formularios = 1;
-
 function limpiar_select(name) {
     document.getElementsByName(name)[formularios - 1].selectedIndex = 0;
 }
@@ -465,15 +464,56 @@ function limpiar_input(name) {
     document.getElementsByName(name)[formularios - 1].value = "";
 }
 
-function crear_nuevo_formulario() {
-    formularios++;
+function limpiar_fotos(name) {
+    let fotos = document.getElementsByName(name)[formularios - 1].childNodes;
+    for (i in fotos) {
+        fotos[i].value = "";
+    }
+    for (i = 1; i < imagenes; i++) {
+        fotos[i].remove();
+    }
+}
 
-    let form = document.getElementsByName("formulario")[0];
+function disable(name) {
+    document.getElementsByName(name)[formularios - 1].disabled = true;
+}
+
+function disable_fotos(name) {
+    let fotos = document.getElementsByName(name);
+    for (i in fotos) {
+        fotos[i].disabled = true;
+    }
+}
+
+
+function crear_nuevo_formulario() {
+    //validar();
+    
+    let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
+    boton.style.visibility = "visible";
+    let form = document.getElementsByName("formulario")[formularios - 1];
     let newForm = form.cloneNode(true);
 
+    //document.write(nuevasFotos);
+    boton.style.visibility = "hidden";
+
+    disable("region");
+    disable("comuna");
+    disable("sector");
+    disable("nombre");
+    disable("email");
+    disable("celular");
+    disable("dia-hora-avistamiento");
+    disable("tipo-avistamiento");
+    disable("estado-avistamiento");
+    disable_fotos("foto-avistamiento");
+    
+    imagenes = 1;
+    formularios++;
+    
     // Se inserta el nuevo formulario al final del otro formulario
     form.insertAdjacentElement("afterend", newForm);
-
+    
     // Se limpia el nuevo formulario
     limpiar_select("region");
     limpiar_select("comuna");
@@ -484,11 +524,13 @@ function crear_nuevo_formulario() {
     limpiar_input("dia-hora-avistamiento");
     limpiar_select("tipo-avistamiento");
     limpiar_select("estado-avistamiento");
-    document.getElementsByName("foto-avistamiento")[formularios - 1].value = "";
+    limpiar_fotos("imagenes")
 
-    //document.write(document.getElementsByName("region")[0].options[0].value);
-    //document.getElementsByName("sector")[formularios].value = "";
+}
 
+function cerrar_ventana_emergente() {
+    let ventana = document.getElementsByName("ventana-emergente")[0];
+    ventana.style.visibility = "hidden";
 }
 
 /*------------------------------ VALIDACIONES -------------------------------*/
@@ -670,11 +712,12 @@ function validar_foto() {
 }
 
 function validar_extension_imagen() {
-    let file = document.getElementsByName("foto-avistamiento")[0].value;
+    let file = document.getElementsByName("foto-avistamiento")[0];
+    let fileValue = file.value;
     var extensiones = /(.jpg|.jpeg|.png|.gif)$/i;
 
     // Se chequea si el archivo ingresado efectivamente es una imagen
-    if (!extensiones.exec(file)) {
+    if (!extensiones.exec(fileValue)) {
         alert("El archivo ingresado no corresponde a una imagen");
         file.value = "";
         return false;
@@ -685,7 +728,7 @@ function validar_extension_imagen() {
 
 function validar() {
     // Se realizan todas las validaciones necesarias
-    validar_region();
+    /*validar_region();
     validar_comuna();
     validar_sector();
     validar_nombre();
@@ -694,5 +737,6 @@ function validar() {
     validar_dia_hora();
     validar_tipo();
     validar_estado();
-    validar_foto();
+    validar_foto();*/
+    document.getElementsByName("ventana-emergente")[0].style.visibility = "visible";
 }

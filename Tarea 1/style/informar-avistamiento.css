@@ -37,9 +37,10 @@ body {
 
 .boton-agregar {
     position: relative;
-    top: -85px;
-    left: 350px;
+    top: -75px;
+    left: 320px;
     cursor: pointer;
+    visibility: visible;
 }
 
 .boton-avistamiento {
@@ -54,6 +55,52 @@ body {
     top: -40px;
     margin-left: 10px;
     cursor: pointer;
+}
+
+.botones-ventana {
+    display: flex;
+    margin: 10px 20px 30px 20px;
+}
+
+.boton-si {
+    position: relative;
+    left: -10px;
+    cursor: pointer;
+}
+
+.boton-no {
+    position: relative;
+    left: 10px;
+    cursor: pointer;
+}
+
+.ventana-emergente {
+    background: rgba(33, 41, 52, .85);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    visibility: hidden;
+}
+
+.ventana-emergente .contenido {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 770px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px 10px 30px 10px;
 }
 
 ul {

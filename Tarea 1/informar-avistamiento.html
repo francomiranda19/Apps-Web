@@ -82,15 +82,15 @@
             <div class="entrada" name="imagenes">
                 Foto: <input class="foto" type="file" name="foto-avistamiento" required onchange="validar_extension_imagen()">
             </div>
+            <div class="boton-agregar" onclick="agregar_imagen()">
+                <ul>
+                    <li><a>Agregar otra foto</a></li>
+                </ul>
+            </div>
         </div>
     </form>
 </div>
 
-<div class="boton-agregar" onclick="agregar_imagen()">
-    <ul>
-        <li><a>Agregar otra foto</a></li>
-    </ul>
-</div>
 <div class="boton-avistamiento">
     <ul>
         <li><a onclick="crear_nuevo_formulario()">Informar otro avistamiento en este sector</a></li>
@@ -100,6 +100,23 @@
     <ul>
         <li><a onclick="validar()">Enviar información de avistamiento</a></li>
     </ul>
+</div>
+<div class="ventana-emergente" name="ventana-emergente">
+    <div class="contenido">
+        <div>¿Está seguro que desea enviar esta información?</div>
+        <div class="botones-ventana">
+            <div class="boton-si">
+                <ul>
+                    <li><a href="informacion-recibida.html">Sí, estoy total y absolutamente seguro</a></li>
+                </ul>
+            </div>
+            <div class="boton-no">
+                <ul>
+                    <li><a onclick="cerrar_ventana_emergente()">No estoy seguro, quiero volver al formulario</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
