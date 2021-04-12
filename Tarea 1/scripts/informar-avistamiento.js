@@ -455,9 +455,45 @@ function agregar_imagen() {
     }
 }
 
+let formularios = 1;
+
+function limpiar_select(name) {
+    document.getElementsByName(name)[formularios - 1].selectedIndex = 0;
+}
+
+function limpiar_input(name) {
+    document.getElementsByName(name)[formularios - 1].value = "";
+}
+
+function crear_nuevo_formulario() {
+    formularios++;
+
+    let form = document.getElementsByName("formulario")[0];
+    let newForm = form.cloneNode(true);
+
+    // Se inserta el nuevo formulario al final del otro formulario
+    form.insertAdjacentElement("afterend", newForm);
+
+    // Se limpia el nuevo formulario
+    limpiar_select("region");
+    limpiar_select("comuna");
+    limpiar_input("sector");
+    limpiar_input("nombre");
+    limpiar_input("email");
+    limpiar_input("celular");
+    limpiar_input("dia-hora-avistamiento");
+    limpiar_select("tipo-avistamiento");
+    limpiar_select("estado-avistamiento");
+    document.getElementsByName("foto-avistamiento")[formularios - 1].value = "";
+
+    //document.write(document.getElementsByName("region")[0].options[0].value);
+    //document.getElementsByName("sector")[formularios].value = "";
+
+}
+
 /*------------------------------ VALIDACIONES -------------------------------*/
 function validar_region() {
-    let i = document.formulario.region.selectedIndex;
+    let i = document.getElementsByName("region")[0].selectedIndex;
 
     // Se verifica que se haya seleccionado una región
     if (i == 0) {
@@ -469,7 +505,7 @@ function validar_region() {
 }
 
 function validar_comuna() {
-    let i = document.formulario.comuna.selectedIndex;
+    let i = document.getElementsByName("comuna")[0].selectedIndex;
 
     // Se verifica que se haya seleccionado una comuna
     if (i == 0) {
@@ -481,7 +517,7 @@ function validar_comuna() {
 }
 
 function validar_sector() {
-    let sec = document.formulario.sector.value;
+    let sec = document.getElementsByName("sector")[0].value;
     let secRegex = /^[0-9a-zA-Z\s]+$/;
 
     // Si no se ingresó sector, está correcto
@@ -504,7 +540,7 @@ function validar_sector() {
 }
 
 function validar_nombre() {
-    let name = document.formulario.nombre.value;
+    let name = document.getElementsByName("nombre")[0].value;
     let nameRegex = /^[a-zA-Z\s]+$/;
 
     // Si no se ingresa nombre, hay un error
@@ -528,7 +564,7 @@ function validar_nombre() {
 }
 
 function validar_email() {
-    let correo = document.formulario.email.value;
+    let correo = document.getElementsByName("email")[0].value;
     let correoRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
     // Si no se ingresó correo hay un error
@@ -552,7 +588,7 @@ function validar_email() {
 }
 
 function validar_celular() {
-    let cel = document.formulario.celular.value;
+    let cel = document.getElementsByName("celular")[0].value;
     let celRegex = /^[+][0-9]+$/;
 
     // Si no hay número de celular, se acepta
