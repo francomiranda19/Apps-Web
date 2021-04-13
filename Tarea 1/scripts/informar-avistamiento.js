@@ -729,7 +729,8 @@ function validar_estado() {
 }
 
 function validar_foto() {
-    let cantidad = document.getElementsByName("foto-avistamiento")[formularios - 1].files.length;
+    let cantidad = document.getElementsByClassName("imagenes")[formularios - 1].childNodes[1].files.length;
+    //let cantidad = document.getElementsByName("foto-avistamiento")[formularios - 1].files.length;
 
     // Si no se ha agregado ninguna foto, hay un error
     if (cantidad == 0) {
