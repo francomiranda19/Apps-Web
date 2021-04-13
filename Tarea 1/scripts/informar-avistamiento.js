@@ -589,7 +589,7 @@ function validar_comuna() {
 
 function validar_sector() {
     let sec = document.getElementsByName("sector")[formularios - 1].value;
-    let secRegex = /^[0-9a-zA-Z\s]+$/;
+    let secRegex = /^[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
 
     // Si no se ingresó sector, está correcto
     if (sec.length == 0) {
@@ -612,7 +612,7 @@ function validar_sector() {
 
 function validar_nombre() {
     let name = document.getElementsByName("nombre")[formularios - 1].value;
-    let nameRegex = /^[a-zA-Z\s]+$/;
+    let nameRegex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
 
     // Si no se ingresa nombre, hay un error
     if (name.length == 0) {
