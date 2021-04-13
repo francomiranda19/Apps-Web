@@ -19,28 +19,28 @@
         <div class="lugar"><b><u>Lugar</u></b><br>
             <div class="entrada">
                 Región: <select name="region" required onchange="calcular_comunas()">
-                    <option>Elija una opción</option>
-                    <option>Región de Arica y Parinacota</option>
-                    <option>Región de Tarapacá</option>
-                    <option>Región de Antofagasta</option>
-                    <option>Región de Atacama</option>
-                    <option>Región de Coquimbo</option>
-                    <option>Región de Valparaíso</option>
-                    <option>Región Metropolitana de Santiago</option>
-                    <option>Región del Libertador General Bernardo O'Higgins</option>
-                    <option>Región del Maule</option>
-                    <option>Región del Ñuble</option>
-                    <option>Región del Biobío</option>
-                    <option>Región de La Araucanía</option>
-                    <option>Región de Los Ríos</option>
-                    <option>Región de Los Lagos</option>
-                    <option>Región de Aysén del General Carlos Ibáñez del Campo</option>
-                    <option>Región de Magallanes y la Antártica Chilena</option>
+                    <option value="0">Elija una opción</option>
+                    <option value="1">Región de Arica y Parinacota</option>
+                    <option value="2">Región de Tarapacá</option>
+                    <option value="3">Región de Antofagasta</option>
+                    <option value="4">Región de Atacama</option>
+                    <option value="5">Región de Coquimbo</option>
+                    <option value="6">Región de Valparaíso</option>
+                    <option value="7">Región Metropolitana de Santiago</option>
+                    <option value="8">Región del Libertador General Bernardo O'Higgins</option>
+                    <option value="9">Región del Maule</option>
+                    <option value="10">Región del Ñuble</option>
+                    <option value="11">Región del Biobío</option>
+                    <option value="12">Región de La Araucanía</option>
+                    <option value="13">Región de Los Ríos</option>
+                    <option value="14">Región de Los Lagos</option>
+                    <option value="15">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                    <option value="16">Región de Magallanes y la Antártica Chilena</option>
                 </select>
             </div>
             <div class="entrada">
                 Comuna: <select name="comuna" required>
-                    <option>Elija una opción</option>
+                    <option value="">Elija una opción</option>
                 </select>
             </div>
             <div class="entrada">
@@ -64,19 +64,19 @@
             </div>
             <div class="entrada">
                 Tipo: <select name="tipo-avistamiento" required>
-                    <option>Elija una opción</option>
-                    <option>Arácnido</option>
-                    <option>Insecto</option>
-                    <option>Miriápodo</option>
-                    <option>No sé</option>
+                    <option value="">Elija una opción</option>
+                    <option value="0">Arácnido</option>
+                    <option value="1">Insecto</option>
+                    <option value="2">Miriápodo</option>
+                    <option value="3">No sé</option>
                 </select>
             </div>
             <div class="entrada">
                 Estado: <select name="estado-avistamiento" required>
-                    <option>Elija una opción</option>
-                    <option>Vivo</option>
-                    <option>Muerto</option>
-                    <option>No sé</option>
+                    <option value="">Elija una opción</option>
+                    <option value="1">Vivo</option>
+                    <option value="2">Muerto</option>
+                    <option value="3">No sé</option>
                 </select>
             </div>
             <div class="entrada" name="imagenes">
@@ -98,7 +98,7 @@
 </div>
 <div class="boton-enviar">
     <ul>
-        <li><a onclick="validar()">Enviar información de avistamiento</a></li>
+        <li><a onclick="validar(true)">Enviar información de avistamiento</a></li>
     </ul>
 </div>
 

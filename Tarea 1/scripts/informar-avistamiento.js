@@ -361,67 +361,99 @@ function calcular_comunas() {
     // Se muestran comunas según su región
     if (region == 1) {
         for (i in comunas_arica_y_parinacota) {
-            comunas.options.add(new Option(comunas_arica_y_parinacota[i]));
+            let option = new Option(comunas_arica_y_parinacota[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 2) {
         for (i in comunas_tarapaca) {
-            comunas.options.add(new Option(comunas_tarapaca[i]));
+            let option = new Option(comunas_tarapaca[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 3) {
         for (i in comunas_antofagasta) {
-            comunas.options.add(new Option(comunas_antofagasta[i]));
+            let option = new Option(comunas_antofagasta[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 4) {
         for (i in comunas_atacama) {
-            comunas.options.add(new Option(comunas_atacama[i]));
+            let option = new Option(comunas_atacama[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 5) {
         for (i in comunas_coquimbo) {
-            comunas.options.add(new Option(comunas_coquimbo[i]));
+            let option = new Option(comunas_coquimbo[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 6) {
         for (i in comunas_valparaiso) {
-            comunas.options.add(new Option(comunas_valparaiso[i]));
+            let option = new Option(comunas_valparaiso[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 7) {
         for (i in comunas_metropolitana) {
-            comunas.options.add(new Option(comunas_metropolitana[i]));
+            let option = new Option(comunas_metropolitana[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 8) {
         for (i in comunas_ohiggins) {
-            comunas.options.add(new Option(comunas_ohiggins[i]));
+            let option = new Option(comunas_ohiggins[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 9) {
         for (i in comunas_maule) {
-            comunas.options.add(new Option(comunas_maule[i]));
+            let option = new Option(comunas_maule[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 10) {
         for (i in comunas_nuble) {
-            comunas.options.add(new Option(comunas_nuble[i]));
+            let option = new Option(comunas_nuble[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 11) {
         for (i in comunas_biobio) {
-            comunas.options.add(new Option(comunas_biobio[i]));
+            let option = new Option(comunas_biobio[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 12) {
         for (i in comunas_araucania) {
-            comunas.options.add(new Option(comunas_araucania[i]));
+            let option = new Option(comunas_araucania[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 13) {
         for (i in comunas_rios) {
-            comunas.options.add(new Option(comunas_rios[i]));
+            let option = new Option(comunas_rios[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 14) {
         for (i in comunas_lagos) {
-            comunas.options.add(new Option(comunas_lagos[i]));
+            let option = new Option(comunas_lagos[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 15) {
         for (i in comunas_aysen) {
-            comunas.options.add(new Option(comunas_aysen[i]));
+            let option = new Option(comunas_aysen[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     } if (region == 16) {
         for (i in comunas_magallanes) {
-            comunas.options.add(new Option(comunas_magallanes[i]));
+            let option = new Option(comunas_magallanes[i]);
+            option.setAttribute("value", i);
+            comunas.options.add(option);
         }
     }
 }
@@ -487,44 +519,47 @@ function disable_fotos(name) {
 
 
 function crear_nuevo_formulario() {
-    //validar();
+    // El nuevo formulario se crea solo si pasa la validación
+    if (validar(false)) {
+        let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
+        boton.style.visibility = "visible";
+        let form = document.getElementsByName("formulario")[formularios - 1];
+        let newForm = form.cloneNode(true);
     
-    let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
-    boton.style.visibility = "visible";
-    let form = document.getElementsByName("formulario")[formularios - 1];
-    let newForm = form.cloneNode(true);
-
-    //document.write(nuevasFotos);
-    boton.style.visibility = "hidden";
-
-    disable("region");
-    disable("comuna");
-    disable("sector");
-    disable("nombre");
-    disable("email");
-    disable("celular");
-    disable("dia-hora-avistamiento");
-    disable("tipo-avistamiento");
-    disable("estado-avistamiento");
-    disable_fotos("foto-avistamiento");
+        //document.write(nuevasFotos);
+        boton.style.visibility = "hidden";
     
-    imagenes = 1;
-    formularios++;
-    
-    // Se inserta el nuevo formulario al final del otro formulario
-    form.insertAdjacentElement("afterend", newForm);
-    
-    // Se limpia el nuevo formulario
-    limpiar_select("region");
-    limpiar_select("comuna");
-    limpiar_input("sector");
-    limpiar_input("nombre");
-    limpiar_input("email");
-    limpiar_input("celular");
-    limpiar_input("dia-hora-avistamiento");
-    limpiar_select("tipo-avistamiento");
-    limpiar_select("estado-avistamiento");
-    limpiar_fotos("imagenes")
+        disable("region");
+        disable("comuna");
+        disable("sector");
+        disable("nombre");
+        disable("email");
+        disable("celular");
+        disable("dia-hora-avistamiento");
+        disable("tipo-avistamiento");
+        disable("estado-avistamiento");
+        disable_fotos("foto-avistamiento");
+        
+        // Se aumenta la cantidad de formularios totales
+        // La cantidad de imágenes vuelve a la cantidad inicial
+        formularios++;
+        imagenes = 1;
+        
+        // Se inserta el nuevo formulario al final del otro formulario
+        form.insertAdjacentElement("afterend", newForm);
+        
+        // Se limpia el nuevo formulario
+        limpiar_select("region");
+        limpiar_select("comuna");
+        limpiar_input("sector");
+        limpiar_input("nombre");
+        limpiar_input("email");
+        limpiar_input("celular");
+        limpiar_input("dia-hora-avistamiento");
+        limpiar_select("tipo-avistamiento");
+        limpiar_select("estado-avistamiento");
+        limpiar_fotos("imagenes")
+    }
 
 }
 
@@ -719,7 +754,7 @@ function validar_extension_imagen() {
 
     // Se chequea si el archivo ingresado efectivamente es una imagen
     if (!extensiones.exec(fileValue)) {
-        alert("El archivo ingresado no corresponde a una imagen");
+        alert("El archivo ingresado no tiene un formato de imágen válido");
         file.value = "";
         return false;
     } else {
@@ -727,7 +762,7 @@ function validar_extension_imagen() {
     }
 }
 
-function validar() {
+function validar(activar_ventana) {
     // Se realizan todas las validaciones
     let validaciones = [
         validar_region(),
@@ -744,8 +779,11 @@ function validar() {
 
     // Si pasan todas las validaciones, se muestra la ventana emergente
     const valueIsTrue = (element) => element == true;
-    if (validaciones.every(valueIsTrue)) {
+    if (validaciones.every(valueIsTrue) && (activar_ventana)) {
         document.getElementsByName("ventana-emergente")[0].style.visibility = "visible";
+        return true;
+    }
+    if (validaciones.every(valueIsTrue) && (!activar_ventana)) {
         return true;
     }
     // Si no pasa alguna validacion, se muestran todos los errores
