@@ -348,9 +348,12 @@ let comunas_magallanes = [
     "Torres del Paine"
 ]
 
+let formularios = 1;
+let imagenes = 1;
+
 function calcular_comunas() {
-    let region = document.formulario.region.selectedIndex;
-    let comunas = document.formulario.comuna;
+    let region = document.getElementsByName("region")[formularios - 1].selectedIndex;
+    let comunas = document.getElementsByName("comuna")[formularios - 1];
 
     // Se eliminan comunas pertenecientes a otras regiones
     for (i in comunas) {
@@ -458,7 +461,6 @@ function calcular_comunas() {
     }
 }
 
-let imagenes = 1;
 function agregar_imagen() {
     let file = document.getElementsByName("foto-avistamiento")[0];
 
@@ -474,7 +476,7 @@ function agregar_imagen() {
     let input = document.getElementsByName("imagenes")[formularios - 1].childNodes[1];
     let newInput = input.cloneNode();
     let fotos = document.getElementsByName("imagenes")[formularios - 1];
-    let boton = document.getElementsByClassName("boton-agregar")[0];
+    let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
 
     // Se setea nuevo id para el nuevo input
     // Se setea un nuevo input sin ningún archivo
@@ -487,7 +489,6 @@ function agregar_imagen() {
     }
 }
 
-let formularios = 1;
 function limpiar_select(name) {
     document.getElementsByName(name)[formularios - 1].selectedIndex = 0;
 }
@@ -501,8 +502,8 @@ function limpiar_fotos(name) {
     for (i in fotos) {
         fotos[i].value = "";
     }
-    for (i = 1; i < imagenes; i++) {
-        fotos[i].remove();
+    for (i = 1; i <= imagenes; i++) {
+        fotos[2].remove();
     }
 }
 
@@ -516,7 +517,6 @@ function disable_fotos(name) {
         fotos[i].disabled = true;
     }
 }
-
 
 function crear_nuevo_formulario() {
     // El nuevo formulario se crea solo si pasa la validación
@@ -541,9 +541,7 @@ function crear_nuevo_formulario() {
         disable_fotos("foto-avistamiento");
         
         // Se aumenta la cantidad de formularios totales
-        // La cantidad de imágenes vuelve a la cantidad inicial
         formularios++;
-        imagenes = 1;
         
         // Se inserta el nuevo formulario al final del otro formulario
         form.insertAdjacentElement("afterend", newForm);
@@ -558,13 +556,18 @@ function crear_nuevo_formulario() {
         limpiar_input("dia-hora-avistamiento");
         limpiar_select("tipo-avistamiento");
         limpiar_select("estado-avistamiento");
-        limpiar_fotos("imagenes")
+        limpiar_fotos("imagenes");
+
+        // La cantidad de imagenes vuelve a ser la inicial
+        imagenes = 1;
     }
 
 }
 
 function cerrar_ventana_emergente() {
     let ventana = document.getElementsByName("ventana-emergente")[0];
+
+    // En caso de apretar la opción "No..." se regresa al formulario
     ventana.style.visibility = "hidden";
 }
 
@@ -777,12 +780,14 @@ function validar(activar_ventana) {
         validar_foto()
     ]
 
-    // Si pasan todas las validaciones, se muestra la ventana emergente
+    // Si pasan todas las validaciones, y se quiere enviar la información
+    // Se muestra la ventana emergente
     const valueIsTrue = (element) => element == true;
     if (validaciones.every(valueIsTrue) && (activar_ventana)) {
         document.getElementsByName("ventana-emergente")[0].style.visibility = "visible";
         return true;
     }
+    // Si solo se quiere pasar a un nuevo formulario, no se muestra la ventana emergente
     if (validaciones.every(valueIsTrue) && (!activar_ventana)) {
         return true;
     }
