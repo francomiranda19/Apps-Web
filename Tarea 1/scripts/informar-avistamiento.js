@@ -465,9 +465,9 @@ function agregar_imagen() {
     // Se aumenta la cantidad de imagenes y se crea el nuevo input
     imagenes++;
 
-    let input = document.getElementsByName("imagenes")[formularios - 1].childNodes;
+    let input = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
     let newInput = input[1].cloneNode();
-    let fotos = document.getElementsByName("imagenes")[formularios - 1];
+    let fotos = document.getElementsByClassName("imagenes")[formularios - 1];
     let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
 
     // Se setea nuevo id para el nuevo input
@@ -490,7 +490,7 @@ function limpiar_input(name) {
 }
 
 function limpiar_fotos(name) {
-    let fotos = document.getElementsByName(name)[formularios - 1].childNodes;
+    let fotos = document.getElementsByClassName(name)[formularios - 1].childNodes;
     fotos[1].value = "";
     while (fotos.length > 2) {
         fotos[2].remove();
@@ -555,7 +555,7 @@ function crear_nuevo_formulario() {
 }
 
 function cerrar_ventana_emergente() {
-    let ventana = document.getElementsByName("ventana-emergente")[0];
+    let ventana = document.getElementsByClassName("ventana-emergente")[0];
 
     // En caso de apretar la opción "No..." se regresa al formulario
     ventana.style.visibility = "hidden";
@@ -772,7 +772,7 @@ function validar(activar_ventana) {
     // Se muestra la ventana emergente
     const valueIsTrue = (element) => element == true;
     if (validaciones.every(valueIsTrue) && (activar_ventana)) {
-        document.getElementsByName("ventana-emergente")[0].style.visibility = "visible";
+        document.getElementsByClassName("ventana-emergente")[0].style.visibility = "visible";
         return true;
     }
     // Si solo se quiere pasar a un nuevo formulario, no se muestra la ventana emergente

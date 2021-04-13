@@ -15,11 +15,11 @@
 </header>
 
 <div class="formulario">
-    <form name="formulario" method="post" action="">
+    <form name="formulario" method="post" action="#">
         <div class="lugar"><b><u>Lugar</u></b><br>
             <div class="entrada">
                 Región: <select name="region" required onchange="calcular_comunas()">
-                    <option value="0">Elija una opción</option>
+                    <option value="">Elija una opción</option>
                     <option value="1">Región de Arica y Parinacota</option>
                     <option value="2">Región de Tarapacá</option>
                     <option value="3">Región de Antofagasta</option>
@@ -79,7 +79,7 @@
                     <option value="3">No sé</option>
                 </select>
             </div>
-            <div class="entrada" name="imagenes">
+            <div class="entrada imagenes">
                 Foto: <input class="foto" type="file" name="foto-avistamiento" required onchange="validar_extension_imagen(this)">
             </div>
             <div class="boton-agregar" onclick="agregar_imagen()">
@@ -102,7 +102,7 @@
     </ul>
 </div>
 
-<div class="ventana-emergente" name="ventana-emergente">
+<div class="ventana-emergente">
     <div class="contenido">
         <div>¿Está seguro que desea enviar esta información?</div>
         <div class="botones-ventana">
