@@ -352,8 +352,8 @@ let formularios = 1;
 let imagenes = 1;
 
 function calcular_comunas() {
-    let region = document.getElementsByName("region")[formularios - 1].selectedIndex;
-    let comunas = document.getElementsByName("comuna")[formularios - 1];
+    let region = document.getElementsByName("region")[0].selectedIndex;
+    let comunas = document.getElementsByName("comuna")[0];
 
     // Se eliminan comunas pertenecientes a otras regiones
     for (i in comunas) {
@@ -481,77 +481,46 @@ function agregar_imagen() {
     }
 }
 
-function limpiar_select(name) {
-    document.getElementsByName(name)[formularios - 1].selectedIndex = 0;
-}
-
-function limpiar_input(name) {
-    document.getElementsByName(name)[formularios - 1].value = "";
-}
-
-function limpiar_fotos(name) {
-    let fotos = document.getElementsByClassName(name)[formularios - 1].childNodes;
-    fotos[1].value = "";
-    while (fotos.length > 2) {
-        fotos[2].remove();
-    }
-}
-
-function disable(name) {
-    document.getElementsByName(name)[formularios - 1].disabled = true;
-}
-
-function disable_fotos(name) {
-    let fotos = document.getElementsByName(name);
-    for (i in fotos) {
-        fotos[i].disabled = true;
-    }
-}
-
 function crear_nuevo_formulario() {
     // El nuevo formulario se crea solo si pasa la validación
     if (validar(false)) {
         let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
         boton.style.visibility = "visible";
-        let form = document.getElementsByName("formulario")[formularios - 1];
-        let newForm = form.cloneNode(true);
+        let info = document.getElementsByClassName("info-avistamiento")[formularios - 1];
+        let newInfo = info.cloneNode(true);
     
         //document.write(nuevasFotos);
         boton.style.visibility = "hidden";
-    
-        disable("region");
-        disable("comuna");
-        disable("sector");
-        disable("nombre");
-        disable("email");
-        disable("celular");
-        disable("dia-hora-avistamiento");
-        disable("tipo-avistamiento");
-        disable("estado-avistamiento");
-        disable_fotos("foto-avistamiento");
+
+        // Se deshabilita la información de avistamiento del formulario anterior
+        document.getElementsByName("dia-hora-avistamiento")[formularios - 1].disabled = true;
+        document.getElementsByName("tipo-avistamiento")[formularios - 1].disabled = true;
+        document.getElementsByName("estado-avistamiento")[formularios - 1].disabled = true;
+        let fotos = document.getElementsByName("foto-avistamiento");
+        for (foto of fotos) {
+            foto.disabled = true;
+        }
         
         // Se aumenta la cantidad de formularios totales
         formularios++;
         
         // Se inserta el nuevo formulario al final del otro formulario
-        form.insertAdjacentElement("afterend", newForm);
+        info.insertAdjacentElement("afterend", newInfo);
         
         // Se limpia el nuevo formulario
-        limpiar_select("region");
-        limpiar_select("comuna");
-        limpiar_input("sector");
-        limpiar_input("nombre");
-        limpiar_input("email");
-        limpiar_input("celular");
-        limpiar_input("dia-hora-avistamiento");
-        limpiar_select("tipo-avistamiento");
-        limpiar_select("estado-avistamiento");
-        limpiar_fotos("imagenes");
+        document.getElementsByName("dia-hora-avistamiento")[formularios - 1].value = "";
+        document.getElementsByName("tipo-avistamiento")[formularios - 1].selectedIndex = 0;
+        document.getElementsByName("estado-avistamiento")[formularios - 1].selectedIndex = 0;
+        
+        let newFotos = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
+        newFotos[1].value = "";
+        while (newFotos.length > 2) {
+            newFotos[2].remove();
+        }
 
         // La cantidad de imagenes vuelve a ser la inicial
         imagenes = 1;
     }
-
 }
 
 function cerrar_ventana_emergente() {
@@ -564,7 +533,7 @@ function cerrar_ventana_emergente() {
 /*------------------------------ VALIDACIONES -------------------------------*/
 let errores = "";
 function validar_region() {
-    let i = document.getElementsByName("region")[formularios - 1].selectedIndex;
+    let i = document.getElementsByName("region")[0].selectedIndex;
 
     // Se verifica que se haya seleccionado una región
     if (i == 0) {
@@ -576,7 +545,7 @@ function validar_region() {
 }
 
 function validar_comuna() {
-    let i = document.getElementsByName("comuna")[formularios - 1].selectedIndex;
+    let i = document.getElementsByName("comuna")[0].selectedIndex;
 
     // Se verifica que se haya seleccionado una comuna
     if (i == 0) {
@@ -588,7 +557,7 @@ function validar_comuna() {
 }
 
 function validar_sector() {
-    let sec = document.getElementsByName("sector")[formularios - 1].value;
+    let sec = document.getElementsByName("sector")[0].value;
     let secRegex = /^[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[0-9a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
 
     // Si no se ingresó sector, está correcto
@@ -611,7 +580,7 @@ function validar_sector() {
 }
 
 function validar_nombre() {
-    let name = document.getElementsByName("nombre")[formularios - 1].value;
+    let name = document.getElementsByName("nombre")[0].value;
     let nameRegex = /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/;
 
     // Si no se ingresa nombre, hay un error
@@ -635,7 +604,7 @@ function validar_nombre() {
 }
 
 function validar_email() {
-    let correo = document.getElementsByName("email")[formularios - 1].value;
+    let correo = document.getElementsByName("email")[0].value;
     let correoRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
     // Si no se ingresó correo hay un error
@@ -659,7 +628,7 @@ function validar_email() {
 }
 
 function validar_celular() {
-    let cel = document.getElementsByName("celular")[formularios - 1].value;
+    let cel = document.getElementsByName("celular")[0].value;
     let celRegex = /^[+][0-9]+$/;
 
     // Si no hay número de celular, se acepta
@@ -755,7 +724,7 @@ function validar_extension_imagen(node) {
 }
 
 function validar(activar_ventana) {
-    // Se realizan todas las validaciones
+    // Se realizan todas las validaciones necesarias para enviar la información
     let validaciones = [
         validar_region(),
         validar_comuna(),
@@ -767,23 +736,31 @@ function validar(activar_ventana) {
         validar_tipo(),
         validar_estado(),
         validar_foto()
-    ]
+    ];
 
-    // Si pasan todas las validaciones, y se quiere enviar la información
-    // Se muestra la ventana emergente
     const valueIsTrue = (element) => element == true;
-    if (validaciones.every(valueIsTrue) && (activar_ventana)) {
-        document.getElementsByClassName("ventana-emergente")[0].style.visibility = "visible";
-        return true;
+
+    // Si se quiere enviar la información
+    if (activar_ventana) {
+        // Si se pasan todas las validaciones, se muestra la ventana emergente
+        if (validaciones.every(valueIsTrue)) {
+            document.getElementsByClassName("ventana-emergente")[0].style.visibility = "visible";
+            return true;
+        } else {
+            alert(errores);
+            errores = "";
+            return false;
+        }
     }
-    // Si solo se quiere pasar a un nuevo formulario, no se muestra la ventana emergente
-    if (validaciones.every(valueIsTrue) && (!activar_ventana)) {
-        return true;
-    }
-    // Si no pasa alguna validacion, se muestran todos los errores
+    // Si se quiere informar otro avistamiento
     else {
-        alert(errores);
-        errores = "";
-        return false;
+        // Si se pasan las validaciones necesarias, se crea el nuevo formulario
+        if (validaciones.every(valueIsTrue)) {
+            return true;
+        } else {
+            alert(errores);
+            errores = "";
+            return false;
+        }
     }
 }
