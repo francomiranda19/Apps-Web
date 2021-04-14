@@ -15,22 +15,14 @@ body {
 }
 
 .informacion {
+    display: block;
     margin: auto;
     width: 350px;
     text-align: center;
     padding: 15px;
 }
 
-.datos-contacto {
-    margin-bottom: 15px;
-}
-
-.lugar {
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
-
-.info-avistamiento {
+.lugar, .datos-contacto, .info-avistamiento {
     margin-bottom: 10px;
 }
 
@@ -58,22 +50,25 @@ ul li:hover {
 }
 
 img {
+    margin-bottom: 20px;
     width: 320px;
     height: 240px;
     border-radius: 10px;
     box-shadow: #00000012 0 0 5px 6px;
 }
 
+.botones {
+    display: flex;
+}
+
 .boton-portada {
     width: 255px;
-    position: absolute;
-    top: 1015px;
-    left: 430px;
+    position: relative;
+    left: 420px;
 }
 
 .boton-listado {
     width: 405px;
-    position: absolute;
-    top: 1015px;
-    left: 700px;
+    position: relative;
+    left: 450px;
 }
