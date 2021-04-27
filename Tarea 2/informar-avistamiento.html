@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Informar avistamiento</title>
+    <link rel="stylesheet" href="style/informar-avistamiento.css">
+    <script src="scripts/informar-avistamiento.js"></script>
+</head>
+
+<body>
+
+<header>
+    <h1>Informar avistamiento</h1>
+</header>
+
+<div class="formulario">
+    <form name="formulario" method="post" action="#">
+        <div class="lugar"><b><u>Lugar</u></b><br>
+            <div class="entrada">
+                Región: <select name="region" required onchange="calcular_comunas()">
+                    <option value="">Elija una opción</option>
+                    <option value="1">Región de Arica y Parinacota</option>
+                    <option value="2">Región de Tarapacá</option>
+                    <option value="3">Región de Antofagasta</option>
+                    <option value="4">Región de Atacama</option>
+                    <option value="5">Región de Coquimbo</option>
+                    <option value="6">Región de Valparaíso</option>
+                    <option value="7">Región Metropolitana de Santiago</option>
+                    <option value="8">Región del Libertador General Bernardo O'Higgins</option>
+                    <option value="9">Región del Maule</option>
+                    <option value="10">Región del Ñuble</option>
+                    <option value="11">Región del Biobío</option>
+                    <option value="12">Región de La Araucanía</option>
+                    <option value="13">Región de Los Ríos</option>
+                    <option value="14">Región de Los Lagos</option>
+                    <option value="15">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                    <option value="16">Región de Magallanes y la Antártica Chilena</option>
+                </select>
+            </div>
+            <div class="entrada">
+                Comuna: <select name="comuna" required>
+                    <option value="">Elija una opción</option>
+                </select>
+            </div>
+            <div class="entrada">
+                Sector: <input type="text" name="sector" size="200" maxlength="100">
+            </div>
+        </div>
+        <div class="datos-contacto"><b><u>Datos de contacto</u></b>
+            <div class="entrada">
+                Nombre: <input type="text" name="nombre" size="100" maxlength="200" required>
+            </div>
+            <div class="entrada">
+                Email: <input type="email" name="email" size="100" required>
+            </div>
+            <div class="entrada">
+                Número de celular: <input type="text" name="celular" size="15" placeholder="+56912345678">
+            </div>
+        </div>
+        <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
+            <div class="entrada">
+                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-día hora:minuto" required>
+            </div>
+            <div class="entrada">
+                Tipo: <select name="tipo-avistamiento" required>
+                    <option value="">Elija una opción</option>
+                    <option value="0">Arácnido</option>
+                    <option value="1">Insecto</option>
+                    <option value="2">Miriápodo</option>
+                    <option value="3">No sé</option>
+                </select>
+            </div>
+            <div class="entrada">
+                Estado: <select name="estado-avistamiento" required>
+                    <option value="">Elija una opción</option>
+                    <option value="1">Vivo</option>
+                    <option value="2">Muerto</option>
+                    <option value="3">No sé</option>
+                </select>
+            </div>
+            <div class="entrada imagenes">
+                Foto: <input class="foto" type="file" name="foto-avistamiento" required onchange="validar_extension_imagen(this)">
+            </div>
+            <div class="boton-agregar" onclick="agregar_imagen()">
+                <ul>
+                    <li><a>Agregar otra foto</a></li>
+                </ul>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="boton-avistamiento">
+    <ul>
+        <li><a onclick="crear_nuevo_formulario()">Informar otro avistamiento en este sector</a></li>
+    </ul>
+</div>
+<div class="boton-enviar">
+    <ul>
+        <li><a onclick="validar(true)">Enviar información de avistamiento</a></li>
+    </ul>
+</div>
+
+<div class="ventana-emergente">
+    <div class="contenido">
+        <div>¿Está seguro que desea enviar esta información?</div>
+        <div class="botones-ventana">
+            <div class="boton-si">
+                <ul>
+                    <li><a href="informacion-recibida.html">Sí, estoy total y absolutamente seguro</a></li>
+                </ul>
+            </div>
+            <div class="boton-no">
+                <ul>
+                    <li><a onclick="cerrar_ventana_emergente()">No estoy seguro, quiero volver al formulario</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
