@@ -1,4 +1,3 @@
-
 INSERT INTO region (id, nombre) VALUES (1,'Región de Tarapacá');
 INSERT INTO region (id, nombre) VALUES (2,'Región de Antofagasta');
 INSERT INTO region (id, nombre) VALUES (3,'Región de Atacama');
@@ -15,7 +14,6 @@ INSERT INTO region (id, nombre) VALUES (13,'Región Metropolitana de Santiago ')
 INSERT INTO region (id, nombre) VALUES (14,'Región de Los Ríos');
 INSERT INTO region (id, nombre) VALUES (15,'Región Arica y Parinacota');
 INSERT INTO region (id, nombre) VALUES (16,'Región del Ñuble');
-
 
 INSERT INTO comuna (region_id, id, nombre) VALUES (1, 10301, 'Camiña');
 INSERT INTO comuna (region_id, id, nombre) VALUES (1, 10302, 'Huara');
