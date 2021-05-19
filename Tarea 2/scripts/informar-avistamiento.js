@@ -1,352 +1,21 @@
-let comunas_arica_y_parinacota = [
-    "Arica",
-    "Camarones",
-    "General Lagos",
-    "Putre"
-]
-
-let comunas_tarapaca = [
-    "Alto Hospicio",
-    "Camiña",
-    "Colchane",
-    "Iquique"
-]
-
-let comunas_antofagasta = [
-    "Antofagasta",
-    "Calama",
-    "María Elena",
-    "Mejillones",
-    "Ollagüe",
-    "San Pedro de Atacama",
-    "Sierra Gorda",
-    "Taltal",
-    "Tocopilla"
-]
-
-let comunas_atacama = [
-    "Alto del Carmen",
-    "Caldera",
-    "Chañaral",
-    "Copiapó",
-    "Diego de Almagro",
-    "Freirina",
-    "Huasco",
-    "Tierra Amarilla",
-    "Vallenar"
-]
-
-let comunas_coquimbo = [
-    "Andacollo",
-    "Canela",
-    "Combarbalá",
-    "Coquimbo",
-    "Illapel",
-    "La Higuera",
-    "La Serena",
-    "Los Vilos",
-    "Monte Patria",
-    "Ovalle",
-    "Paihuano",
-    "Punitaqui",
-    "Río Hurtado",
-    "Salamanca",
-    "Vicuña"
-]
-
-let comunas_valparaiso = [
-    "Calle Larga",
-    "Isla de Pascua",
-    "Limache",
-    "Los Andes",
-    "Olmué",
-    "Quilpué",
-    "Rinconada",
-    "San Esteban",
-    "Villa Alemana"
-]
-
-let comunas_metropolitana = [
-    "Alhué",
-    "Buin",
-    "Calera de Tango",
-    "Cerrillos",
-    "Cerro Navia",
-    "Colina",
-    "Conchalí",
-    "Curacaví",
-    "El Bosque",
-    "El Monte",
-    "Estación Central",
-    "Huechuraba",
-    "Independencia",
-    "Isla de Maipo",
-    "Lampa",
-    "La Cisterna",
-    "La Granja",
-    "La Florida",
-    "La Pintana",
-    "La Reina",
-    "Las Condes",
-    "Lo Barnechea",
-    "Lo Espejo",
-    "Lo Prado",
-    "Macul",
-    "Maipú",
-    "María Pinto",
-    "Melipilla",
-    "Ñuñoa",
-    "Padre Hurtado",
-    "Paine",
-    "Pedro Aguirre Cerda",
-    "Peñaflor",
-    "Peñalolén",
-    "Pirque",
-    "Providencia",
-    "Pudahuel",
-    "Puente Alto",
-    "Quilicura",
-    "Quinta Normal",
-    "Recoleta",
-    "Renca",
-    "San Bernardo",
-    "San Joaquín",
-    "San José de Maipo",
-    "San Miguel",
-    "San Pedro",
-    "San Ramón",
-    "Santiago",
-    "Talagante",
-    "Tiltil",
-    "Vitacura"
-]
-
-let comunas_ohiggins = [
-    "Chépica",
-    "Chimbarongo",
-    "Codegua",
-    "Coinco",
-    "Coltauco",
-    "Doñihue",
-    "Graneros",
-    "La Estrella",
-    "Las Cabras",
-    "Litueche",
-    "Lolol",
-    "Machalí",
-    "Malloa",
-    "Marchigüe",
-    "Mostazal",
-    "Nancagua",
-    "Navidad",
-    "Palmilla",
-    "Paredones",
-    "Peralillo",
-    "Pichilemu",
-    "Placilla",
-    "Pumanque",
-    "Olivar",
-    "Peumo",
-    "Pichidegua",
-    "Quinta de Tilcoco",
-    "Rancagua",
-    "Rengo",
-    "Requinoa",
-    "San Fernando",
-    "San Vicente de Tagua Tagua",
-    "Santa Cruz"
-]
-
-let comunas_maule = [
-    "Cauquenes",
-    "Chanco",
-    "Colbún",
-    "Constitución",
-    "Curepto",
-    "Curicó",
-    "Empedrado",
-    "Hualañe",
-    "Licantén",
-    "Linares",
-    "Longaví",
-    "Maule",
-    "Molina",
-    "Parral",
-    "Pelarco",
-    "Pelluhue",
-    "Pencahue",
-    "Rauco",
-    "Retiro",
-    "Río Claro",
-    "Romeral",
-    "Sagrada Familia",
-    "San Clemente",
-    "San Javier",
-    "San Rafael",
-    "Talca",
-    "Teno",
-    "Vichuquén",
-    "Villa Alegre",
-    "Yerbas Buenas"
-]
-
-let comunas_nuble = [
-    "Bulnes",
-    "Chillán Viejo",
-    "Chillán",
-    "Cobquecura",
-    "Coelemu",
-    "Coihueco",
-    "El Carmén",
-    "Ninhue",
-    "Ñiquén",
-    "Pemuco",
-    "Pinto",
-    "Portezuelo",
-    "Quillón",
-    "Quirihue",
-    "Ránquil",
-    "San Carlos",
-    "San Fabián",
-    "San Ignacio",
-    "San Nicolás",
-    "Trehuaco",
-    "Yungay"
-]
-
-let comunas_biobio = [
-    "Alto Biobío",
-    "Antuco",
-    "Arauco",
-    "Cabrero",
-    "Cañete",
-    "Contulmo",
-    "Curanilahue",
-    "Laja",
-    "Lebu",
-    "Los Álamos",
-    "Los Ángeles",
-    "Mulchén",
-    "Nacimiento",
-    "Negrete",
-    "Quilaco",
-    "Quilleco",
-    "San Rosendo",
-    "Santa Bárbara",
-    "Tirúa",
-    "Tucapel",
-    "Yumbel"
-]
-
-let comunas_araucania = [
-    "Angol",
-    "Carahue",
-    "Cholchol",
-    "Collipulli",
-    "Cunco",
-    "Curacautín",
-    "Curarrehue",
-    "Ercilla",
-    "Freire",
-    "Galvarino",
-    "Gorbea",
-    "Lautaro",
-    "Loncoche",
-    "Lonquimay",
-    "Los Sauces",
-    "Lumaco",
-    "Melipeuco",
-    "Nueva Imperial",
-    "Padre Las Casas",
-    "Perquenco",
-    "Pitrufquén",
-    "Pucón",
-    "Purén",
-    "Puerto Saavedra",
-    "Renaico",
-    "Temuco",
-    "Teodoro Schmidt",
-    "Toltén",
-    "Traiguén",
-    "Victoria",
-    "Vilcún",
-    "Vilarrica"
-]
-
-let comunas_rios = [
-    "Corral",
-    "Futrono",
-    "Lanco",
-    "La Unión",
-    "Lago Ranco",
-    "Los Lagos",
-    "Máfil",
-    "Mariquina",
-    "Paillaco",
-    "Panguipulli",
-    "Río Bueno",
-    "Valdivia"
-]
-
-let comunas_lagos = [
-    "Ancud",
-    "Calbuco",
-    "Castro",
-    "Chaitén",
-    "Chonchi",
-    "Cochamó",
-    "Curaco de Vélez",
-    "Dalcahue",
-    "Fresia",
-    "Frutillar",
-    "Futaleufú",
-    "Hualaihué",
-    "Llanquihue",
-    "Los Muermos",
-    "Maullín",
-    "Osorno",
-    "Palena",
-    "Puerto Montt",
-    "Puerto Octay",
-    "Puerto Varas",
-    "Puqueldón",
-    "Purranque",
-    "Puyehue",
-    "Queilén",
-    "Quemchi",
-    "Quellón",
-    "Quinchao",
-    "Río Negro",
-    "San Juan de la Costa",
-    "San Pablo"
-]
-
-let comunas_aysen = [
-    "Aysén",
-    "Chile Chico",
-    "Cisnes",
-    "Cochrane",
-    "Coyhaique",
-    "Guaitecas",
-    "Lago Verde",
-    "O´Higgins",
-    "Río Ibáñez",
-    "Tortel"
-]
-
-let comunas_magallanes = [
-    "Antártica",
-    "Cabo de Hornos",
-    "Laguna Blanca",
-    "Natales",
-    "Porvenir",
-    "Primavera",
-    "Punta Arenas",
-    "Río Verde",
-    "San Gregorio",
-    "Timaukel",
-    "Torres del Paine"
-]
+let regiones = {
+    "Región de Tarapacá": ['Camiña','Huara','Pozo Almonte','Iquique','Pica','Colchane','Alto Hospicio'],
+    "Región de Antofagasta": ['Tocopilla','Maria Elena','Ollague','Calama','San Pedro Atacama','Sierra Gorda','Mejillones','Antofagasta','Taltal'],
+    "Región de Atacama": ['Diego de Almagro','Chañaral','Caldera','Copiapo','Tierra Amarilla','Huasco','Freirina','Vallenar','Alto del Carmen'],
+    "Región de Coquimbo": ['La Higuera','La Serena','Vicuña','Paihuano','Coquimbo','Andacollo','Rio Hurtado','Ovalle','Monte Patria','Punitaqui','Combarbala','Mincha','Illapel','Salamanca','Los Vilos'],
+    "Región de Valparaíso": ['Petorca','Cabildo','Papudo','La Ligua','Zapallar','Putaendo','Santa Maria','San Felipe','Pencahue','Catemu','Llay Llay','Nogales','La Calera','Hijuelas','La Cruz','Quillota','Olmue','Limache','Los Andes','Rinconada','Calle Larga','San Esteban','Puchuncavi','Quintero','Viña del Mar','Villa Alemana','Quilpue','Valparaiso','Juan Fernandez','Casablanca','Concon','Isla de Pascua','Algarrobo','El Quisco','El Tabo','Cartagena','San Antonio','Santo Domingo'],
+    "Región del Libertador Bernardo Ohiggins": ['Mostazal','Codegua','Graneros','Machali','Rancagua','Olivar','Doñihue','Requinoa','Coinco','Coltauco','Quinta Tilcoco','Las Cabras','Rengo','Peumo','Pichidegua','Malloa','San Vicente','Navidad','La Estrella','Marchigue','Pichilemu','Litueche','Paredones','San Fernando','Peralillo','Placilla','Chimbarongo','Palmilla','Nancagua','Santa Cruz','Pumanque','Chepica','Lolol'],
+    "Región del Maule": ['Teno','Romeral','Rauco','Curico','Sagrada Familia','Hualañe','Vichuquen','Molina','Licanten','Rio Claro','Curepto','Pelarco','Talca','Pencahue','San Clemente','Constitucion','Maule','Empedrado','San Rafael','San Javier','Colbun','Villa Alegre','Yerbas Buenas','Linares','Longavi','Retiro','Parral','Chanco','Pelluhue','Cauquenes'],
+    "Región del Biobío": ['Tome','Florida','Penco','Talcahuano','Concepcion','Hualqui','Coronel','Lota','Santa Juana','Chiguayante','San Pedro de la Paz','Hualpen','Cabrero','Yumbel','Tucapel','Antuco','San Rosendo','Laja','Quilleco','Los Angeles','Nacimiento','Negrete','Santa Barbara','Quilaco','Mulchen','Alto Bio Bio','Arauco','Curanilahue','Los Alamos','Lebu','Cañete','Contulmo','Tirua'],
+    "Región de La Araucanía": ['Renaico','Angol','Collipulli','Los Sauces','Puren','Ercilla','Lumaco','Victoria','Traiguen','Curacautin','Lonquimay','Perquenco','Galvarino','Lautaro','Vilcun','Temuco','Carahue','Melipeuco','Nueva Imperial','Puerto Saavedra','Cunco','Freire','Pitrufquen','Teodoro Schmidt','Gorbea','Pucon','Villarrica','Tolten','Curarrehue','Loncoche','Padre Las Casas','Cholchol'],
+    "Región de Los Lagos": ['San Pablo','San Juan','Osorno','Puyehue','Rio Negro','Purranque','Puerto Octay','Frutillar','Fresia','Llanquihue','Puerto Varas','Los Muermos','Puerto Montt','Maullin','Calbuco','Cochamo','Ancud','Quemchi','Dalcahue','Curaco de Velez','Castro','Chonchi','Queilen','Quellon','Quinchao','Puqueldon','Chaiten','Futaleufu','Palena','Hualaihue'],
+    "Región Aisén del General Carlos Ibáñez del Campo": ['Guaitecas','Cisnes','Aysen','Coyhaique','Lago Verde','Rio Ibañez','Chile Chico','Cochrane','Tortel',"O'Higins"],
+    "Región de Magallanes y la Antártica Chilena": ['Torres del Paine','Puerto Natales','Laguna Blanca','San Gregorio','Rio Verde','Punta Arenas','Porvenir','Primavera','Timaukel','Antartica'],
+    "Región Metropolitana de Santiago": ['Tiltil','Colina','Lampa','Conchali','Quilicura','Renca','Las Condes','Pudahuel','Quinta Normal','Providencia','Santiago','La Reina','Ñuñoa','San Miguel','Maipu','La Cisterna','La Florida','La Granja','Independencia','Huechuraba','Recoleta','Vitacura','Lo Barrenechea','Macul','Peñalolen','San Joaquin','La Pintana','San Ramon','El Bosque','Pedro Aguirre Cerda','Lo Espejo','Estacion Central','Cerrillos','Lo Prado','Cerro Navia','San Jose de Maipo','Puente Alto','Pirque','San Bernardo','Calera de Tango','Buin','Paine','Peñaflor','Talagante','El Monte','Isla de Maipo','Curacavi','Maria Pinto','Melipilla','San Pedro','Alhue','Padre Hurtado'],
+    "Región de Los Ríos": ['Lanco','Mariquina','Panguipulli','Mafil','Valdivia','Los Lagos','Corral','Paillaco','Futrono','Lago Ranco','La Union','Rio Bueno'],
+    "Región Arica y Parinacota": ['Gral. Lagos','Putre','Arica','Camarones'],
+    "Región del Ñuble": ['Cobquecura','Ñiquen','San Fabian','San Carlos','Quirihue','Ninhue','Trehuaco','San Nicolas','Coihueco','Chillan','Portezuelo','Pinto','Coelemu','Bulnes','San Ignacio','Ranquil','Quillon','El Carmen','Pemuco','Yungay','Chillan Viejo']
+};
 
 let formularios = 1;
 let imagenes = 1;
@@ -356,109 +25,125 @@ function calcular_comunas() {
     let comunas = document.getElementsByName("comuna")[0];
 
     // Se eliminan comunas pertenecientes a otras regiones
-    for (i in comunas) {
+    for (let i in comunas) {
         comunas.options.remove(i);
     }
 
     comunas.options.add(new Option("Elija una opción"));
     // Se muestran comunas según su región
-    if (region == 1) {
-        for (i in comunas_arica_y_parinacota) {
-            let option = new Option(comunas_arica_y_parinacota[i]);
-            option.setAttribute("value", i);
+    if (region === 1) {
+        let comunas_region = regiones["Región de Tarapacá"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 2) {
-        for (i in comunas_tarapaca) {
-            let option = new Option(comunas_tarapaca[i]);
-            option.setAttribute("value", i);
+    } if (region === 2) {
+        let comunas_region = regiones["Región de Antofagasta"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 3) {
-        for (i in comunas_antofagasta) {
-            let option = new Option(comunas_antofagasta[i]);
-            option.setAttribute("value", i);
+    } if (region === 3) {
+        let comunas_region = regiones["Región de Atacama"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 4) {
-        for (i in comunas_atacama) {
-            let option = new Option(comunas_atacama[i]);
-            option.setAttribute("value", i);
+    } if (region === 4) {
+        let comunas_region = regiones["Región de Coquimbo"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 5) {
-        for (i in comunas_coquimbo) {
-            let option = new Option(comunas_coquimbo[i]);
-            option.setAttribute("value", i);
+    } if (region === 5) {
+        let comunas_region = regiones["Región de Valparaíso"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 6) {
-        for (i in comunas_valparaiso) {
-            let option = new Option(comunas_valparaiso[i]);
-            option.setAttribute("value", i);
+    } if (region === 6) {
+        let comunas_region = regiones["Región del Libertador Bernardo Ohiggins"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 7) {
-        for (i in comunas_metropolitana) {
-            let option = new Option(comunas_metropolitana[i]);
-            option.setAttribute("value", i);
+    } if (region === 7) {
+        let comunas_region = regiones["Región del Maule"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 8) {
-        for (i in comunas_ohiggins) {
-            let option = new Option(comunas_ohiggins[i]);
-            option.setAttribute("value", i);
+    } if (region === 8) {
+        let comunas_region = regiones["Región del Biobío"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 9) {
-        for (i in comunas_maule) {
-            let option = new Option(comunas_maule[i]);
-            option.setAttribute("value", i);
+    } if (region === 9) {
+        let comunas_region = regiones["Región de La Araucanía"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 10) {
-        for (i in comunas_nuble) {
-            let option = new Option(comunas_nuble[i]);
-            option.setAttribute("value", i);
+    } if (region === 10) {
+        let comunas_region = regiones["Región de Los Lagos"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 11) {
-        for (i in comunas_biobio) {
-            let option = new Option(comunas_biobio[i]);
-            option.setAttribute("value", i);
+    } if (region === 11) {
+        let comunas_region = regiones["Región Aisén del General Carlos Ibáñez del Campo"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 12) {
-        for (i in comunas_araucania) {
-            let option = new Option(comunas_araucania[i]);
-            option.setAttribute("value", i);
+    } if (region === 12) {
+        let comunas_region = regiones["Región de Magallanes y la Antártica Chilena"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 13) {
-        for (i in comunas_rios) {
-            let option = new Option(comunas_rios[i]);
-            option.setAttribute("value", i);
+    } if (region === 13) {
+        let comunas_region = regiones["Región Metropolitana de Santiago"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 14) {
-        for (i in comunas_lagos) {
-            let option = new Option(comunas_lagos[i]);
-            option.setAttribute("value", i);
+    } if (region === 14) {
+        let comunas_region = regiones["Región de Los Ríos"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 15) {
-        for (i in comunas_aysen) {
-            let option = new Option(comunas_aysen[i]);
-            option.setAttribute("value", i);
+    } if (region === 15) {
+        let comunas_region = regiones["Región Arica y Parinacota"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
-    } if (region == 16) {
-        for (i in comunas_magallanes) {
-            let option = new Option(comunas_magallanes[i]);
-            option.setAttribute("value", i);
+    } if (region === 16) {
+        let comunas_region = regiones["Región del Ñuble"].sort();
+        for (let c of comunas_region) {
+            let option = new Option(c);
             comunas.options.add(option);
         }
     }
+}
+
+function actual_time() {
+    let fecha = document.getElementsByName("dia-hora-avistamiento")[formularios - 1];
+
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let mes = (month < 10) ? "0" + month : month;
+    let day = today.getDate()
+    let dia = (day < 10) ? "0" + day : day;
+    let hour = today.getHours();
+    let hora = (hour < 10) ? "0" + hour : hour;
+    let minute = today.getMinutes();
+    let minuto = (minute < 10) ? "0" + minute : minute;
+    fecha.placeholder = year + "-" + mes + "-" + dia + " " + hora + ":" + minuto;
 }
 
 function agregar_imagen() {
@@ -482,6 +167,7 @@ function agregar_imagen() {
 }
 
 function crear_nuevo_formulario() {
+
     // El nuevo formulario se crea solo si pasa la validación
     if (validar(false)) {
         let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];

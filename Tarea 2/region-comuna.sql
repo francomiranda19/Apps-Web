@@ -1,7 +1,7 @@
 INSERT INTO region (id, nombre) VALUES (1,'Región de Tarapacá');
 INSERT INTO region (id, nombre) VALUES (2,'Región de Antofagasta');
 INSERT INTO region (id, nombre) VALUES (3,'Región de Atacama');
-INSERT INTO region (id, nombre) VALUES (4,'Región de Coquimbo ');
+INSERT INTO region (id, nombre) VALUES (4,'Región de Coquimbo');
 INSERT INTO region (id, nombre) VALUES (5,'Región de Valparaíso');
 INSERT INTO region (id, nombre) VALUES (6,'Región del Libertador Bernardo Ohiggins');
 INSERT INTO region (id, nombre) VALUES (7,'Región del Maule');
@@ -10,10 +10,11 @@ INSERT INTO region (id, nombre) VALUES (9,'Región de La Araucanía');
 INSERT INTO region (id, nombre) VALUES (10,'Región de Los Lagos');
 INSERT INTO region (id, nombre) VALUES (11,'Región Aisén del General Carlos Ibáñez del Campo');
 INSERT INTO region (id, nombre) VALUES (12,'Región de Magallanes y la Antártica Chilena');
-INSERT INTO region (id, nombre) VALUES (13,'Región Metropolitana de Santiago ');
+INSERT INTO region (id, nombre) VALUES (13,'Región Metropolitana de Santiago');
 INSERT INTO region (id, nombre) VALUES (14,'Región de Los Ríos');
 INSERT INTO region (id, nombre) VALUES (15,'Región Arica y Parinacota');
 INSERT INTO region (id, nombre) VALUES (16,'Región del Ñuble');
+
 
 INSERT INTO comuna (region_id, id, nombre) VALUES (1, 10301, 'Camiña');
 INSERT INTO comuna (region_id, id, nombre) VALUES (1, 10302, 'Huara');
@@ -277,7 +278,7 @@ INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110102, 'Cisnes');
 INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110103, 'Aysen');
 INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110201, 'Coyhaique');
 INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110202, 'Lago Verde');
-INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110301, 'Rio Iba?ez');
+INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110301, 'Rio Ibañez');
 INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110302, 'Chile Chico');
 INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110401, 'Cochrane');
 INSERT INTO comuna (region_id, id, nombre) VALUES (11, 110402, 'Tortel');

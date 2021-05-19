@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Informar avistamiento</title>
-    <link rel="stylesheet" href="style/informar-avistamiento.css">
+    <link rel="stylesheet" href="static/style/informar-avistamiento.css">
     <script src="scripts/informar-avistamiento.js"></script>
 </head>
 
@@ -15,32 +15,32 @@
 </header>
 
 <div class="formulario">
-    <form name="formulario" method="post" action="cgi-bin/save_data.py">
+    <form id="formulario" name="formulario" method="post" action="cgi-bin/save_data.py" enctype="multipart/form-data">
         <div class="lugar"><b><u>Lugar</u></b><br>
             <div class="entrada">
                 Región: <select name="region" required onchange="calcular_comunas()">
-                    <option value="">Elija una opción</option>
-                    <option value="1">Región de Arica y Parinacota</option>
-                    <option value="2">Región de Tarapacá</option>
-                    <option value="3">Región de Antofagasta</option>
-                    <option value="4">Región de Atacama</option>
-                    <option value="5">Región de Coquimbo</option>
-                    <option value="6">Región de Valparaíso</option>
-                    <option value="7">Región Metropolitana de Santiago</option>
-                    <option value="8">Región del Libertador General Bernardo O'Higgins</option>
-                    <option value="9">Región del Maule</option>
-                    <option value="10">Región del Ñuble</option>
-                    <option value="11">Región del Biobío</option>
-                    <option value="12">Región de La Araucanía</option>
-                    <option value="13">Región de Los Ríos</option>
-                    <option value="14">Región de Los Lagos</option>
-                    <option value="15">Región de Aysén del General Carlos Ibáñez del Campo</option>
-                    <option value="16">Región de Magallanes y la Antártica Chilena</option>
+                    <option value="" disabled selected>Elija una opción</option>
+                    <option value="1">Región de Tarapacá</option>
+                    <option value="2">Región de Antofagasta</option>
+                    <option value="3">Región de Atacama</option>
+                    <option value="4">Región de Coquimbo</option>
+                    <option value="5">Región de Valparaíso</option>
+                    <option value="6">Región del Libertador General Bernardo O'Higgins</option>
+                    <option value="7">Región del Maule</option>
+                    <option value="8">Región del Biobío</option>
+                    <option value="9">Región de La Araucanía</option>
+                    <option value="10">Región de Los Lagos</option>
+                    <option value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                    <option value="12">Región de Magallanes y la Antártica Chilena</option>
+                    <option value="13">Región Metropolitana de Santiago</option>
+                    <option value="14">Región de Los Ríos</option>
+                    <option value="15">Región de Arica y Parinacota</option>
+                    <option value="16">Región del Ñuble</option>
                 </select>
             </div>
             <div class="entrada">
                 Comuna: <select name="comuna" required>
-                    <option value="">Elija una opción</option>
+                    <option value="" disabled selected>Elija una opción</option>
                 </select>
             </div>
             <div class="entrada">
@@ -60,23 +60,23 @@
         </div>
         <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
             <div class="entrada">
-                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-día hora:minuto" required>
+                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder = "año-mes-dia hora:minuto" required>
             </div>
             <div class="entrada">
                 Tipo: <select name="tipo-avistamiento" required>
-                    <option value="">Elija una opción</option>
-                    <option value="0">Arácnido</option>
-                    <option value="1">Insecto</option>
-                    <option value="2">Miriápodo</option>
-                    <option value="3">No sé</option>
+                    <option value="" disabled selected>Elija una opción</option>
+                    <option value="3">Arácnido</option>
+                    <option value="2">Insecto</option>
+                    <option value="4">Miriápodo</option>
+                    <option value="1">No sé</option>
                 </select>
             </div>
             <div class="entrada">
                 Estado: <select name="estado-avistamiento" required>
-                    <option value="">Elija una opción</option>
-                    <option value="1">Vivo</option>
-                    <option value="2">Muerto</option>
-                    <option value="3">No sé</option>
+                    <option value="" disabled selected>Elija una opción</option>
+                    <option value="2">Vivo</option>
+                    <option value="3">Muerto</option>
+                    <option value="1">No sé</option>
                 </select>
             </div>
             <div class="entrada imagenes">
@@ -86,6 +86,21 @@
                 <ul>
                     <li><a>Agregar otra foto</a></li>
                 </ul>
+            </div>
+        </div>
+        <div class="ventana-emergente">
+            <div class="contenido">
+                <div>¿Está seguro que desea enviar esta información?</div>
+                <div class="botones-ventana">
+                    <div class="boton-si">
+                        <button type="submit" form="formulario" value="Submit">Sí, estoy total y absolutamente seguro</button>
+                    </div>
+                    <div class="boton-no">
+                        <ul>
+                            <li><a onclick="cerrar_ventana_emergente()">No estoy seguro, quiero volver al formulario</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
@@ -100,24 +115,6 @@
     <ul>
         <li><a onclick="validar(true)">Enviar información de avistamiento</a></li>
     </ul>
-</div>
-
-<div class="ventana-emergente">
-    <div class="contenido">
-        <div>¿Está seguro que desea enviar esta información?</div>
-        <div class="botones-ventana">
-            <div class="boton-si">
-                <ul>
-                    <li><a href="informacion-recibida.html">Sí, estoy total y absolutamente seguro</a></li>
-                </ul>
-            </div>
-            <div class="boton-no">
-                <ul>
-                    <li><a onclick="cerrar_ventana_emergente()">No estoy seguro, quiero volver al formulario</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
 </div>
 
 </body>

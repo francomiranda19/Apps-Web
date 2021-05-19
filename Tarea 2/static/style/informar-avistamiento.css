@@ -125,3 +125,17 @@ ul li a {
 ul li:hover {
     background: #034e3e;
 }
+
+button {
+    border-radius: 0;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 19px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #034e3e;
+}
