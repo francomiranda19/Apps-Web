@@ -31,6 +31,15 @@ class Avistamiento:
         tipo_avistamiento = data[8]
         estado_avistamiento = data[9]
 
+        print(region)
+        print(comuna)
+        print(sector)
+        print(nombre)
+        print(email)
+        print(celular)
+        print(dia_hora)
+        print(tipo_avistamiento)
+        print(estado_avistamiento)
         fileitem = data[10]
         filename = fileitem.filename
 
@@ -52,8 +61,8 @@ class Avistamiento:
             SELECT id FROM comuna WHERE nombre='{comuna}'
         """
         self.cursor.execute(sql)
-        comuna_id = self.cursor.fetchall()[0][0]
 
+        comuna_id = self.cursor.fetchall()[0][0]
         sql = f"""
             INSERT INTO avistamiento (comuna_id, dia_hora, sector, nombre, email, celular)
             VALUES ('{comuna_id}', '{dia_hora_formulario}', '{sector}', '{nombre}', '{email}', '{celular}');
@@ -62,7 +71,6 @@ class Avistamiento:
         self.bbdd.commit()
 
         id_archivo = self.cursor.getlastrowid()
-
         sql = f"""
             INSERT INTO detalle_avistamiento (dia_hora, tipo, estado, avistamiento_id) 
             VALUES ('{dia_hora}', '{tipo_avistamiento}', '{estado_avistamiento}', '{id_archivo}');
