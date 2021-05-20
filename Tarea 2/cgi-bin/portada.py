@@ -8,7 +8,8 @@ print("Content-type:text/html; charset=UTF-8")
 db = Avistamiento("localhost", "root", "", "tarea2")
 data = db.get_last5()
 
-static = """
+if len(data) == 0:
+    html = """
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +25,36 @@ static = """
     <nav>
         <ul>
             <li><a href="../informar-avistamiento.html">Informar avistamiento</a></li>
-            <li><a href="../listado-avistamientos.html">Listado de avistamientos</a></li>
+            <li><a href="listado-avistamientos.py?id=0">Listado de avistamientos</a></li>
+            <li><a href="../estadisticas.html">Estadísticas</a></li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+<p>No hay avistamientos registrados :c</p>
+</body>
+</html>
+"""
+    print(html, file=utf8stdout)
+else:
+    static = """
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Portada</title>
+    <link rel="stylesheet" href="../static/style/portada.css">
+</head>
+
+<body>
+<h1>Bienvenido a la mejor página de información de avistamientos del mundo!</h1>
+<header>
+    <nav>
+        <ul>
+            <li><a href="../informar-avistamiento.html">Informar avistamiento</a></li>
+            <li><a href="listado-avistamientos.py?id=0">Listado de avistamientos</a></li>
             <li><a href="../estadisticas.html">Estadísticas</a></li>
         </ul>
     </nav>
@@ -42,10 +72,10 @@ static = """
         </tr>
 """
 
-print(static, file=utf8stdout)
+    print(static, file=utf8stdout)
 
-for d in data:
-    row = f"""
+    for d in data:
+        row = f"""
         <tr>
             <td>{str(d[0])}</td>
             <td>{str(d[1])}</td>
@@ -53,13 +83,13 @@ for d in data:
             <td>{str(d[3])}</td>
             <td><img src="../media/{str(d[4])}"></td>
         </tr>
-    """
-    print(row, file=utf8stdout)
+"""
+        print(row, file=utf8stdout)
 
-end = """
+    end = """
     </table>
 </div>
 </body>
 </html>
 """
-print(end, file=utf8stdout)
+    print(end, file=utf8stdout)

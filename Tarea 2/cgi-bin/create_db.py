@@ -10,8 +10,8 @@ db = mysql.connector.connect(
 
 cursor = db.cursor()
 
-tarea2 = open("../tarea2.sql", "r")
-region_comuna = open("../region-comuna.sql", "r")
+tarea2 = open("../tarea2.sql", "r", encoding="utf-8")
+region_comuna = open("../region-comuna.sql", "r", encoding="utf-8")
 cursor.execute(tarea2.read(), multi=True).send(None)
 cursor.execute(region_comuna.read(), multi=True).send(None)
 

@@ -31,15 +31,6 @@ class Avistamiento:
         tipo_avistamiento = data[8]
         estado_avistamiento = data[9]
 
-        print(region)
-        print(comuna)
-        print(sector)
-        print(nombre)
-        print(email)
-        print(celular)
-        print(dia_hora)
-        print(tipo_avistamiento)
-        print(estado_avistamiento)
         fileitem = data[10]
         filename = fileitem.filename
 
@@ -95,8 +86,8 @@ class Avistamiento:
 
     def get_all(self):
         sql = """
-            SELECT DA.dia_hora, CO.nombre, AV.sector, AV.nombre FROM detalle_avistamiento DA, comuna CO, avistamiento AV
-            WHERE DA.avistamiento_id = AV.id AND AV.comuna_id = CO.id ORDER BY DA.dia_hora;
+            SELECT AV.dia_hora, CO.nombre, AV.sector, AV.nombre FROM detalle_avistamiento DA, comuna CO, avistamiento AV
+            WHERE DA.avistamiento_id = AV.id AND AV.comuna_id = CO.id ORDER BY AV.dia_hora DESC;
         """
         self.cursor.execute(sql)
         return self.cursor.fetchall()

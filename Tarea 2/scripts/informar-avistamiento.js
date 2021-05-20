@@ -149,6 +149,7 @@ function actual_time() {
 function agregar_imagen() {
     // Se aumenta la cantidad de imagenes y se crea el nuevo input
     imagenes++;
+    console.log(imagenes);
 
     let input = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
     let newInput = input[1].cloneNode();
@@ -176,6 +177,7 @@ function crear_nuevo_formulario() {
         document.getElementsByName("dia-hora-avistamiento-" + formularios)[0].name = "dia-hora-avistamiento-" + (formularios + 1);
         document.getElementsByName("tipo-avistamiento-" + formularios)[0].name = "tipo-avistamiento-" + (formularios + 1);
         document.getElementsByName("estado-avistamiento-" + formularios)[0].name = "estado-avistamiento-" + (formularios + 1);
+        document.getElementsByName("foto-avistamiento-" + formularios)[0].name = "foto-avistamiento-" + (formularios + 1);
         let info = document.getElementsByClassName("info-avistamiento")[0];
         let newInfo = info.cloneNode(true);
 
@@ -183,8 +185,8 @@ function crear_nuevo_formulario() {
         document.getElementsByName("dia-hora-avistamiento-" + (formularios + 1))[0].name = "dia-hora-avistamiento-" + formularios;
         document.getElementsByName("tipo-avistamiento-" + (formularios + 1))[0].name = "tipo-avistamiento-" + formularios;
         document.getElementsByName("estado-avistamiento-" + (formularios + 1))[0].name = "estado-avistamiento-" + formularios;
-        console.log(newInfo.childNodes);
-    
+        document.getElementsByName("foto-avistamiento-" + (formularios + 1))[0].name = "foto-avistamiento-" + formularios;
+
         //document.write(nuevasFotos);
         boton.style.visibility = "hidden";
 
@@ -192,7 +194,7 @@ function crear_nuevo_formulario() {
         document.getElementsByName("dia-hora-avistamiento-" + formularios)[0].disabled = true;
         document.getElementsByName("tipo-avistamiento-" + formularios)[0].disabled = true;
         document.getElementsByName("estado-avistamiento-" + formularios)[0].disabled = true;
-        let fotos = document.getElementsByName("foto-avistamiento");
+        let fotos = document.getElementsByName("foto-avistamiento-" + formularios);
         for (let foto of fotos) {
             foto.disabled = true;
         }
