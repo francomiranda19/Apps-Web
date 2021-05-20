@@ -149,10 +149,15 @@ function actual_time() {
 function agregar_imagen() {
     // Se aumenta la cantidad de imagenes y se crea el nuevo input
     imagenes++;
-    console.log(imagenes);
 
+    for (let i = 1; i < imagenes; i++) {
+        document.getElementsByName("foto-avistamiento-" + formularios + "." + i)[0].name = "foto-avistamiento-" + formularios + "." + (i + 1);
+    }
     let input = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
     let newInput = input[1].cloneNode();
+    for (let i = 1; i < imagenes; i++) {
+        document.getElementsByName("foto-avistamiento-" + formularios + "." + (i + 1))[0].name = "foto-avistamiento-" + formularios + "." + i;
+    }
     let fotos = document.getElementsByClassName("imagenes")[formularios - 1];
     let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
 
@@ -177,15 +182,22 @@ function crear_nuevo_formulario() {
         document.getElementsByName("dia-hora-avistamiento-" + formularios)[0].name = "dia-hora-avistamiento-" + (formularios + 1);
         document.getElementsByName("tipo-avistamiento-" + formularios)[0].name = "tipo-avistamiento-" + (formularios + 1);
         document.getElementsByName("estado-avistamiento-" + formularios)[0].name = "estado-avistamiento-" + (formularios + 1);
-        document.getElementsByName("foto-avistamiento-" + formularios)[0].name = "foto-avistamiento-" + (formularios + 1);
+        for (let i = 1; i <= imagenes; i++) {
+            document.getElementsByName("foto-avistamiento-" + formularios + "." + i)[0].name = "foto-avistamiento-" + (formularios + 1) + "." + i;
+        }
+        //document.getElementsByName("foto-avistamiento-" + formularios)[0].name = "foto-avistamiento-" + (formularios + 1);
         let info = document.getElementsByClassName("info-avistamiento")[0];
         let newInfo = info.cloneNode(true);
+        console.log(newInfo);
 
         // El nombre original vuelve
         document.getElementsByName("dia-hora-avistamiento-" + (formularios + 1))[0].name = "dia-hora-avistamiento-" + formularios;
         document.getElementsByName("tipo-avistamiento-" + (formularios + 1))[0].name = "tipo-avistamiento-" + formularios;
         document.getElementsByName("estado-avistamiento-" + (formularios + 1))[0].name = "estado-avistamiento-" + formularios;
-        document.getElementsByName("foto-avistamiento-" + (formularios + 1))[0].name = "foto-avistamiento-" + formularios;
+        for (let i = 1; i <= imagenes; i++) {
+            document.getElementsByName("foto-avistamiento-" + (formularios + 1) + "." + i)[0].name = "foto-avistamiento-" + formularios + "." + i;
+        }
+        //document.getElementsByName("foto-avistamiento-" + (formularios + 1))[0].name = "foto-avistamiento-" + formularios;
 
         //document.write(nuevasFotos);
         boton.style.visibility = "hidden";
