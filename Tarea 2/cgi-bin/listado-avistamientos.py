@@ -32,7 +32,7 @@ if len(data) == 0:
     <h1>Listado de avistamientos</h1>
 </header>
 
-<p>No hay avistamientos registrados</p>
+<p>No hay avistamientos registrados :c</p>
 <div>
     <ul>
         <li><a href="portada.py">Volver a la portada</a></li>

@@ -162,7 +162,7 @@ html = """
 
 <body>
 <header>
-    <h2>Hemos recibido su información, muchas gracias por colaborar</h2>
+    <h1>Hemos recibido su información, muchas gracias por colaborar</h1>
 </header>
 
 <ul>
