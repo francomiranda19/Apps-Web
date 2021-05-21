@@ -1,14 +1,13 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import cgi
-
 from db import Avistamiento
 
 utf8stdout = open(1, "w", encoding="utf-8", closefd=False)
 
-print("Content-type:text/html\r\n\r\n")
-db = Avistamiento("localhost", "root", "", "tarea2")
-data = db.get_all()
+print("Content-type:text/html; charset=UTF-8")
+bbdd = Avistamiento("localhost", "root", "", "tarea2")
+data = bbdd.get_all()
 id0 = cgi.FieldStorage().getfirst("id")
 
 if id0 is None:
@@ -74,8 +73,9 @@ else:
     stop = min(len(data), (my_id * 5) + 5)
     if len(data) <= 5:
         for d in data:
+            id_avistamiento = bbdd.get_id(str(d[0]), str(d[1]), str(d[2]), str(d[3]))
             row = f"""
-    <tr onclick="window.location='info-avistamiento.py?id={}'">
+    <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(d[0])}</td>
         <td>{str(d[1])}</td>
         <td>{str(d[2])}</td>
@@ -98,8 +98,9 @@ else:
         print(footer, file=utf8stdout)
     elif stop == 5:
         for i in range(0, 5):
+            id_avistamiento = bbdd.get_id(str(data[i][0]), str(data[i][1]), str(data[i][2]), str(data[i][3]))
             row = f"""
-    <tr onclick="window.location='info-avistamiento.py?id={}'">
+    <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
@@ -127,8 +128,9 @@ else:
         print(footer, file=utf8stdout)
     elif stop == len(data):
         for i in range(my_id * 5, len(data)):
+            id_avistamiento = bbdd.get_id(str(data[i][0]), str(data[i][1]), str(data[i][2]), str(data[i][3]))
             row = f"""
-    <tr onclick="window.location='info-avistamiento.py?id={}'">
+    <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
@@ -156,8 +158,9 @@ else:
         print(footer, file=utf8stdout)
     else:
         for i in range(my_id * 5, stop):
+            id_avistamiento = bbdd.get_id(str(data[i][0]), str(data[i][1]), str(data[i][2]), str(data[i][3]))
             row = f"""
-    <tr onclick="window.location='info-avistamiento.py?id={}'">
+    <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>

@@ -87,6 +87,26 @@ class Avistamiento:
             self.cursor.execute(sql)
             self.bbdd.commit()
 
+    def get_id(self, fecha_hora, nombre_comuna, nombre_sector, nombre_contacto):
+        sql = f"""
+            SELECT AV.id FROM avistamiento AV, detalle_avistamiento DA, comuna CO
+            WHERE AV.dia_hora='{fecha_hora}' AND CO.nombre='{nombre_comuna}'
+            AND AV.sector='{nombre_sector}' AND AV.nombre='{nombre_contacto}'
+            AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()[0][0]
+
+    def get_lugar_and_datos(self, id_avistamiento):
+        sql = f"""
+            SELECT RE.nombre, CO.nombre, AV.sector, AV.nombre, AV.email, AV.celular
+            FROM region RE, comuna CO, avistamiento AV, detalle_avistamiento DA
+            WHERE AV.id='{id_avistamiento}'
+            AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id AND CO.region_id=RE.id
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()[0]
+
     def get_last5(self):
         sql = """
             SELECT AV.dia_hora, CO.nombre, AV.sector, DA.tipo, F.ruta_archivo FROM avistamiento AV, detalle_avistamiento DA, comuna CO,
