@@ -60,11 +60,11 @@
         </div>
         <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
             <div class="entrada">
-                Día y hora: <input type="text" name="dia-hora-avistamiento-1" size="20" placeholder = "año-mes-dia hora:minuto" required>
+                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder = "año-mes-dia hora:minuto" required>
             </div>
             <div class="entrada">
-                Tipo: <select name="tipo-avistamiento-1" required>
-                    <option value="" disabled selected>Elija una opción</option>
+                Tipo: <select name="tipo-avistamiento" required>
+                    <option value="0" disabled selected>Elija una opción</option>
                     <option value="3">Arácnido</option>
                     <option value="2">Insecto</option>
                     <option value="4">Miriápodo</option>
@@ -72,15 +72,15 @@
                 </select>
             </div>
             <div class="entrada">
-                Estado: <select name="estado-avistamiento-1" required>
-                    <option value="" disabled selected>Elija una opción</option>
+                Estado: <select name="estado-avistamiento" required>
+                    <option value="0" disabled selected>Elija una opción</option>
                     <option value="2">Vivo</option>
                     <option value="3">Muerto</option>
                     <option value="1">No sé</option>
                 </select>
             </div>
             <div class="entrada imagenes">
-                Foto: <input class="foto" type="file" name="foto-avistamiento-1.1" required onchange="validar_extension_imagen(this)">
+                Foto: <input class="foto" type="file" name="foto-avistamiento" required onchange="validar_extension_imagen(this)">
             </div>
             <div class="boton-agregar" onclick="agregar_imagen()">
                 <ul>

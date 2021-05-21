@@ -66,6 +66,8 @@ else:
         <th>Comuna</th>
         <th>Sector</th>
         <th>Nombre contacto</th>
+        <th>Total avistamientos</th>
+        <th>Total fotos</th>
     </tr>
 """
     print(static, file=utf8stdout)
@@ -73,10 +75,12 @@ else:
     if len(data) <= 5:
         for d in data:
             row = f"""
-    <tr>
+    <tr onclick="window.location='info-avistamiento.py?id={}'">
         <td>{str(d[0])}</td>
         <td>{str(d[1])}</td>
         <td>{str(d[2])}</td>
+        <td>{str(d[3])}</td>
+        <td>{str(d[3])}</td>
         <td>{str(d[3])}</td>
     </tr> 
 """
@@ -95,10 +99,12 @@ else:
     elif stop == 5:
         for i in range(0, 5):
             row = f"""
-    <tr>
+    <tr onclick="window.location='info-avistamiento.py?id={}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
+        <td>{str(data[i][3])}</td>
+        <td>{str(data[i][3])}</td>
         <td>{str(data[i][3])}</td>
     </tr>
 """
@@ -122,10 +128,12 @@ else:
     elif stop == len(data):
         for i in range(my_id * 5, len(data)):
             row = f"""
-    <tr>
+    <tr onclick="window.location='info-avistamiento.py?id={}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
+        <td>{str(data[i][3])}</td>
+        <td>{str(data[i][3])}</td>
         <td>{str(data[i][3])}</td>
     </tr>
 """
@@ -149,10 +157,12 @@ else:
     else:
         for i in range(my_id * 5, stop):
             row = f"""
-    <tr>
+    <tr onclick="window.location='info-avistamiento.py?id={}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
+        <td>{str(data[i][3])}</td>
+        <td>{str(data[i][3])}</td>
         <td>{str(data[i][3])}</td>
     </tr>
 """

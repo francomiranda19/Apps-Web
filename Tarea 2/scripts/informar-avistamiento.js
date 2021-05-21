@@ -29,7 +29,9 @@ function calcular_comunas() {
         comunas.options.remove(i);
     }
 
-    comunas.options.add(new Option("Elija una opción"));
+    let elegir = new Option("Elija una opción");
+    elegir.setAttribute("value", "0");
+    comunas.options.add(elegir);
     // Se muestran comunas según su región
     if (region === 1) {
         let comunas_region = regiones["Región de Tarapacá"];
@@ -150,14 +152,14 @@ function agregar_imagen() {
     // Se aumenta la cantidad de imagenes y se crea el nuevo input
     imagenes++;
 
-    for (let i = 1; i < imagenes; i++) {
+    /*for (let i = 1; i < imagenes; i++) {
         document.getElementsByName("foto-avistamiento-" + formularios + "." + i)[0].name = "foto-avistamiento-" + formularios + "." + (i + 1);
-    }
+    }*/
     let input = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
     let newInput = input[1].cloneNode();
-    for (let i = 1; i < imagenes; i++) {
+    /*for (let i = 1; i < imagenes; i++) {
         document.getElementsByName("foto-avistamiento-" + formularios + "." + (i + 1))[0].name = "foto-avistamiento-" + formularios + "." + i;
-    }
+    }*/
     let fotos = document.getElementsByClassName("imagenes")[formularios - 1];
     let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
 
@@ -177,50 +179,21 @@ function crear_nuevo_formulario() {
     if (validar(false)) {
         let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
         boton.style.visibility = "visible";
-
-        // Se cambia el número del nombre para efectos de facilidad
-        document.getElementsByName("dia-hora-avistamiento-" + formularios)[0].name = "dia-hora-avistamiento-" + (formularios + 1);
-        document.getElementsByName("tipo-avistamiento-" + formularios)[0].name = "tipo-avistamiento-" + (formularios + 1);
-        document.getElementsByName("estado-avistamiento-" + formularios)[0].name = "estado-avistamiento-" + (formularios + 1);
-        for (let i = 1; i <= imagenes; i++) {
-            document.getElementsByName("foto-avistamiento-" + formularios + "." + i)[0].name = "foto-avistamiento-" + (formularios + 1) + "." + i;
-        }
-        //document.getElementsByName("foto-avistamiento-" + formularios)[0].name = "foto-avistamiento-" + (formularios + 1);
-        let info = document.getElementsByClassName("info-avistamiento")[0];
+        let info = document.getElementsByClassName("info-avistamiento")[formularios - 1];
         let newInfo = info.cloneNode(true);
-        console.log(newInfo);
 
-        // El nombre original vuelve
-        document.getElementsByName("dia-hora-avistamiento-" + (formularios + 1))[0].name = "dia-hora-avistamiento-" + formularios;
-        document.getElementsByName("tipo-avistamiento-" + (formularios + 1))[0].name = "tipo-avistamiento-" + formularios;
-        document.getElementsByName("estado-avistamiento-" + (formularios + 1))[0].name = "estado-avistamiento-" + formularios;
-        for (let i = 1; i <= imagenes; i++) {
-            document.getElementsByName("foto-avistamiento-" + (formularios + 1) + "." + i)[0].name = "foto-avistamiento-" + formularios + "." + i;
-        }
-        //document.getElementsByName("foto-avistamiento-" + (formularios + 1))[0].name = "foto-avistamiento-" + formularios;
-
-        //document.write(nuevasFotos);
         boton.style.visibility = "hidden";
-
-        // Se deshabilita la información de avistamiento del formulario anterior
-        document.getElementsByName("dia-hora-avistamiento-" + formularios)[0].disabled = true;
-        document.getElementsByName("tipo-avistamiento-" + formularios)[0].disabled = true;
-        document.getElementsByName("estado-avistamiento-" + formularios)[0].disabled = true;
-        let fotos = document.getElementsByName("foto-avistamiento-" + formularios);
-        for (let foto of fotos) {
-            foto.disabled = true;
-        }
         
         // Se aumenta la cantidad de formularios totales
         formularios++;
-        
+
         // Se inserta el nuevo formulario al final del otro formulario
         info.insertAdjacentElement("afterend", newInfo);
         
         // Se limpia el nuevo formulario
-        document.getElementsByName("dia-hora-avistamiento-" + formularios)[0].value = "";
-        document.getElementsByName("tipo-avistamiento-" + formularios)[0].selectedIndex = 0;
-        document.getElementsByName("estado-avistamiento-" + formularios)[0].selectedIndex = 0;
+        document.getElementsByName("dia-hora-avistamiento")[formularios - 1].value = "";
+        document.getElementsByName("tipo-avistamiento")[formularios - 1].selectedIndex = 0;
+        document.getElementsByName("estado-avistamiento")[formularios - 1].selectedIndex = 0;
         
         let newFotos = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
         newFotos[1].value = "";
@@ -332,7 +305,7 @@ function validar_email() {
     if (correo.match(correoRegex)) {
         return true;
     } else {
-        errores += "Email incorrecto, no cumple formato\n";
+        errores += "Email inválido, no cumple formato\n";
         return false;
     }
 }
@@ -362,7 +335,7 @@ function validar_celular() {
 }
 
 function validar_dia_hora() {
-    let fecha = document.getElementsByName("dia-hora-avistamiento-" + formularios)[0].value;
+    let fecha = document.getElementsByName("dia-hora-avistamiento")[formularios - 1].value;
     let fechaRegex = /^\d{2,4}\-\d{1,2}\-\d{1,2}[\s]([01]?[0-9]|2[0-3]):[0-5][0-9]$/;
     
     // Si no se ingresó fecha, hay error
@@ -386,7 +359,7 @@ function validar_dia_hora() {
 }
 
 function validar_tipo() {
-    let i = document.getElementsByName("tipo-avistamiento-" + formularios)[0].selectedIndex;
+    let i = document.getElementsByName("tipo-avistamiento")[formularios - 1].selectedIndex;
     // Se verifica que se haya seleccionado una comuna
     if (i === 0) {
         errores += "Debe elegir un tipo\n";
@@ -397,7 +370,7 @@ function validar_tipo() {
 }
 
 function validar_estado() {
-    let i = document.getElementsByName("estado-avistamiento-" + formularios)[0].selectedIndex;
+    let i = document.getElementsByName("estado-avistamiento")[formularios - 1].selectedIndex;
     // Se verifica que se haya seleccionado una comuna
     if (i === 0) {
         errores += "Debe elegir un estado\n";
