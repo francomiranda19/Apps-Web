@@ -97,7 +97,7 @@ else:
 """
         print(footer, file=utf8stdout)
     elif stop == 5:
-        for i in range(0, 5):
+        for i in range(5):
             id_avistamiento = bbdd.get_id(str(data[i][0]), str(data[i][1]), str(data[i][2]), str(data[i][3]))
             row = f"""
     <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">

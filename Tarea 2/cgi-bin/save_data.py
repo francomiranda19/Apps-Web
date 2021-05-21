@@ -53,7 +53,7 @@ if comuna == 0:
 
 if len(sector) > 100:
     print_error("Nombre del sector demasiado largo")
-if not regex.search(sector_regex, sector):
+if not regex.search(sector_regex, sector) and len(sector) > 0:
     print_error("Nombre del sector inválido")
 
 if len(nombre) == 0:
@@ -72,9 +72,10 @@ if not regex.search(email_regex, email):
 
 if len(celular) > 15:
     print_error("Número de celular demasiado largo")
-if not regex.search(celular_regex, celular):
+if not regex.search(celular_regex, celular) and len(celular) > 0:
     print_error("Número de celular inválido")
 
+"""
 if type(form["dia-hora-avistamiento"]) == list:
     dias_horas = form["dia-hora-avistamiento"]
     tipos = form["tipo-avistamiento"]
@@ -119,7 +120,7 @@ else:
       #  if size > MAX_FILE_SIZE:
        #     print_error("Tamaño de archivo mayor a 10 MB")
 
-
+"""
 
 # fileobj = form["foto-avistamiento"]
 # if not fileobj.filename:

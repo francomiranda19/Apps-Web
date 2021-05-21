@@ -32,7 +32,7 @@ class Avistamiento:
         imagenes = data[10]
 
         sql = f"""
-            SELECT id FROM comuna WHERE nombre='{comuna}'
+            SELECT id FROM comuna WHERE nombre='{comuna}';
         """
         self.cursor.execute(sql)
 
@@ -92,27 +92,51 @@ class Avistamiento:
             SELECT AV.id FROM avistamiento AV, detalle_avistamiento DA, comuna CO
             WHERE AV.dia_hora='{fecha_hora}' AND CO.nombre='{nombre_comuna}'
             AND AV.sector='{nombre_sector}' AND AV.nombre='{nombre_contacto}'
-            AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id
+            AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id;
         """
         self.cursor.execute(sql)
         return self.cursor.fetchall()[0][0]
 
-    def get_lugar_and_datos(self, id_avistamiento):
+    def get_info_avistamiento(self, id_avistamiento):
         sql = f"""
-            SELECT RE.nombre, CO.nombre, AV.sector, AV.nombre, AV.email, AV.celular
+            SELECT RE.nombre, CO.nombre, AV.sector, AV.nombre, AV.email, AV.celular, DA.dia_hora, DA.tipo, DA.estado
             FROM region RE, comuna CO, avistamiento AV, detalle_avistamiento DA
-            WHERE AV.id='{id_avistamiento}'
-            AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id AND CO.region_id=RE.id
+            WHERE AV.id='{id_avistamiento}' AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id AND CO.region_id=RE.id;
         """
         self.cursor.execute(sql)
-        return self.cursor.fetchall()[0]
+        return self.cursor.fetchall()
+
+    def get_info_imagen(self, id_avistamiento):
+        sql = f"""
+            SELECT ruta_archivo FROM foto F, detalle_avistamiento DA , avistamiento AV
+            WHERE F.detalle_avistamiento_id=DA.id AND DA.avistamiento_id=AV.id
+            AND AV.id='{id_avistamiento}';
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def count_avistamientos(self, id_avistamiento):
+        sql = f"""
+            SELECT COUNT(id) FROM detalle_avistamiento WHERE avistamiento_id='{id_avistamiento}';
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()[0][0]
+
+    def count_imagenes_por_avistamiento(self, id_avistamiento):
+        sql = f"""
+            SELECT COUNT(F.id) FROM foto F, detalle_avistamiento DA, avistamiento AV
+            WHERE F.detalle_avistamiento_id=DA.id AND DA.avistamiento_id='{id_avistamiento}'
+            AND AV.id='{id_avistamiento}' GROUP BY F.detalle_avistamiento_id;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
 
     def get_last5(self):
         sql = """
             SELECT AV.dia_hora, CO.nombre, AV.sector, DA.tipo, F.ruta_archivo FROM avistamiento AV, detalle_avistamiento DA, comuna CO,
             (SELECT detalle_avistamiento_id, ruta_archivo FROM foto GROUP BY detalle_avistamiento_id) AS F
             WHERE DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id  AND F.detalle_avistamiento_id=DA.id
-            ORDER BY AV.dia_hora DESC LIMIT 5
+            ORDER BY AV.dia_hora DESC LIMIT 5;
         """
         self.cursor.execute(sql)
         return self.cursor.fetchall()
