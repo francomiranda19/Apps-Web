@@ -57,6 +57,10 @@ img {
     box-shadow: #00000012 0 0 5px 6px;
 }
 
+img:hover {
+    transform: scale(2.5);
+}
+
 .botones {
     display: flex;
 }

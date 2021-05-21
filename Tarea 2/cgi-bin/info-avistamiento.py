@@ -58,7 +58,7 @@ for i in range(cantidad_avistamientos):
     print(informacion, file=utf8stdout)
     for j in range(imagenes_por_avistamientos[i][0]):
         imagenes = f"""
-            <a href="#"><img src="../media/{str(imagen[imagen_actual][0])}" alt="Imagen de un {info[i][7]}"></a>
+            <img src="../media/{str(imagen[imagen_actual][0])}" alt="Imagen de un {info[i][7]}">
         """
         imagen_actual += 1
         print(imagenes, file=utf8stdout)
