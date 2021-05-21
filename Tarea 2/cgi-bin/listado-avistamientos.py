@@ -74,14 +74,19 @@ else:
     if len(data) <= 5:
         for d in data:
             id_avistamiento = bbdd.get_id(str(d[0]), str(d[1]), str(d[2]), str(d[3]))
+            total_avistamientos = bbdd.count_avistamientos(id_avistamiento)
+            imagenes_por_avistamiento = bbdd.count_imagenes_por_avistamiento(id_avistamiento)
+            imagenes_totales = 0
+            for i in range(len(imagenes_por_avistamiento)):
+                imagenes_totales += imagenes_por_avistamiento[i][0]
             row = f"""
     <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(d[0])}</td>
         <td>{str(d[1])}</td>
         <td>{str(d[2])}</td>
         <td>{str(d[3])}</td>
-        <td>{str(d[3])}</td>
-        <td>{str(d[3])}</td>
+        <td>{str(total_avistamientos)}</td>
+        <td>{str(imagenes_totales)}</td>
     </tr> 
 """
             print(row, file=utf8stdout)
@@ -99,14 +104,19 @@ else:
     elif stop == 5:
         for i in range(5):
             id_avistamiento = bbdd.get_id(str(data[i][0]), str(data[i][1]), str(data[i][2]), str(data[i][3]))
+            total_avistamientos = bbdd.count_avistamientos(id_avistamiento)
+            imagenes_por_avistamiento = bbdd.count_imagenes_por_avistamiento(id_avistamiento)
+            imagenes_totales = 0
+            for i in range(len(imagenes_por_avistamiento)):
+                imagenes_totales += imagenes_por_avistamiento[i][0]
             row = f"""
     <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
         <td>{str(data[i][3])}</td>
-        <td>{str(data[i][3])}</td>
-        <td>{str(data[i][3])}</td>
+        <td>{str(total_avistamientos)}</td>
+        <td>{str(imagenes_totales)}</td>
     </tr>
 """
             print(row, file=utf8stdout)
@@ -129,14 +139,19 @@ else:
     elif stop == len(data):
         for i in range(my_id * 5, len(data)):
             id_avistamiento = bbdd.get_id(str(data[i][0]), str(data[i][1]), str(data[i][2]), str(data[i][3]))
+            total_avistamientos = bbdd.count_avistamientos(id_avistamiento)
+            imagenes_por_avistamiento = bbdd.count_imagenes_por_avistamiento(id_avistamiento)
+            imagenes_totales = 0
+            for i in range(len(imagenes_por_avistamiento)):
+                imagenes_totales += imagenes_por_avistamiento[i][0]
             row = f"""
     <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
         <td>{str(data[i][3])}</td>
-        <td>{str(data[i][3])}</td>
-        <td>{str(data[i][3])}</td>
+        <td>{str(total_avistamientos)}</td>
+        <td>{str(imagenes_totales)}</td>
     </tr>
 """
             print(row, file=utf8stdout)
@@ -159,14 +174,19 @@ else:
     else:
         for i in range(my_id * 5, stop):
             id_avistamiento = bbdd.get_id(str(data[i][0]), str(data[i][1]), str(data[i][2]), str(data[i][3]))
+            total_avistamientos = bbdd.count_avistamientos(id_avistamiento)
+            imagenes_por_avistamiento = bbdd.count_imagenes_por_avistamiento(id_avistamiento)
+            imagenes_totales = 0
+            for i in range(len(imagenes_por_avistamiento)):
+                imagenes_totales += imagenes_por_avistamiento[i][0]
             row = f"""
     <tr onclick="window.location='info-avistamiento.py?id={id_avistamiento}'">
         <td>{str(data[i][0])}</td>
         <td>{str(data[i][1])}</td>
         <td>{str(data[i][2])}</td>
         <td>{str(data[i][3])}</td>
-        <td>{str(data[i][3])}</td>
-        <td>{str(data[i][3])}</td>
+        <td>{str(total_avistamientos)}</td>
+        <td>{str(imagenes_totales)}</td>
     </tr>
 """
             print(row, file=utf8stdout)
