@@ -1,1 +1,0 @@
-DROP DATABASE `cc500225_db`;
