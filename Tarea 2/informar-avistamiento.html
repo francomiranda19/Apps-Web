@@ -8,7 +8,7 @@
     <script src="scripts/informar-avistamiento.js"></script>
 </head>
 
-<body>
+<body onload="actual_time(); calcular_comunas()">
 
 <header>
     <h1>Informar avistamiento</h1>
@@ -60,7 +60,7 @@
         </div>
         <div class="info-avistamiento"><b><u>Información de avistamiento</u></b>
             <div class="entrada">
-                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder = "año-mes-dia hora:minuto" required>
+                Día y hora: <input type="text" name="dia-hora-avistamiento" size="20" placeholder="año-mes-dia hora:minuto" required>
             </div>
             <div class="entrada">
                 Tipo: <select name="tipo-avistamiento" required>
@@ -80,7 +80,7 @@
                 </select>
             </div>
             <div class="entrada imagenes">
-                Foto: <input class="foto" type="file" name="foto-avistamiento" required onchange="validar_extension_imagen(this)">
+                Foto: <input class="foto" type="file" name="foto-avistamiento" required>
             </div>
             <div class="boton-agregar" onclick="agregar_imagen()">
                 <ul>
@@ -118,5 +118,4 @@
 </div>
 
 </body>
-
 </html>

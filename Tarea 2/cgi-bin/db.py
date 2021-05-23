@@ -9,12 +9,12 @@ from utils import print_error
 
 class Avistamiento:
 
-    def __init__(self, host, user, password, database):
+    def __init__(self):
         self.bbdd = mysql.connector.connect(
-            host=host,
-            user=user,
-            password=password,
-            database=database
+            host="localhost",
+            user="root",
+            password="",
+            database="tarea2"
         )
         self.cursor = self.bbdd.cursor()
 
@@ -42,24 +42,23 @@ class Avistamiento:
             VALUES ('{comuna_id}', '{dia_hora_formulario}', '{sector}', '{nombre}', '{email}', '{celular}');
         """
         self.cursor.execute(sql)
-        self.bbdd.commit()
 
         id_archivo = self.cursor.getlastrowid()
-        sql2 = """
+        sql = """
             INSERT INTO detalle_avistamiento (dia_hora, tipo, estado, avistamiento_id) 
             VALUES (%s, %s, %s, %s);
         """
         if type(dia_hora) == list:
             for i in range(len(dia_hora)):
-                self.cursor.execute(sql2, (dia_hora[i].value, tipo[i].value, estado[i].value, id_archivo))
-                self.bbdd.commit()
+                self.cursor.execute(sql, (dia_hora[i].value, tipo[i].value, estado[i].value, id_archivo))
                 id_avistamiento = self.cursor.getlastrowid()
                 self.save_imagenes(imagenes[i], id_avistamiento)
+                self.bbdd.commit()
         else:
-            self.cursor.execute(sql2, (dia_hora, tipo, estado, id_archivo))
-            self.bbdd.commit()
+            self.cursor.execute(sql, (dia_hora, tipo, estado, id_archivo))
             id_avistamiento = self.cursor.getlastrowid()
             self.save_imagenes(imagenes[0], id_avistamiento)
+            self.bbdd.commit()
 
     def save_imagenes(self, imagenes, id_avistamiento):
         for i in range(len(imagenes)):
@@ -78,14 +77,15 @@ class Avistamiento:
             tipo_archivo = filetype.guess(file_path)
             if tipo_archivo.mime != "image/png" and tipo_archivo.mime != "image/jpg" and tipo_archivo.mime != "image/jpeg":
                 os.remove(file_path)
-                print_error("Tipo de archivo inválido, debe ser una imagen")
+                self.bbdd.rollback()
+                print_error(["El archivo ingresado no tiene un formato de imagen válido"])
+                exit()
 
             sql = f"""
                 INSERT INTO foto (ruta_archivo, nombre_archivo, detalle_avistamiento_id)
                 VALUES ('{hash_archivo}', '{filename}', '{id_avistamiento}');
             """
             self.cursor.execute(sql)
-            self.bbdd.commit()
 
     def get_id(self, fecha_hora, nombre_comuna, nombre_sector, nombre_contacto):
         sql = f"""
@@ -135,7 +135,7 @@ class Avistamiento:
         sql = """
             SELECT AV.dia_hora, CO.nombre, AV.sector, DA.tipo, F.ruta_archivo FROM avistamiento AV, detalle_avistamiento DA, comuna CO,
             (SELECT detalle_avistamiento_id, ruta_archivo FROM foto GROUP BY detalle_avistamiento_id) AS F
-            WHERE DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id  AND F.detalle_avistamiento_id=DA.id
+            WHERE DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id AND F.detalle_avistamiento_id=DA.id
             ORDER BY AV.dia_hora DESC LIMIT 5;
         """
         self.cursor.execute(sql)
@@ -143,8 +143,9 @@ class Avistamiento:
 
     def get_all(self):
         sql = """
-            SELECT DISTINCT AV.dia_hora, CO.nombre, AV.sector, AV.nombre FROM detalle_avistamiento DA, comuna CO, avistamiento AV
-            WHERE DA.avistamiento_id = AV.id AND AV.comuna_id = CO.id ORDER BY AV.dia_hora DESC;
+            SELECT DISTINCT AV.dia_hora, CO.nombre, AV.sector, AV.nombre FROM avistamiento AV, detalle_avistamiento DA, comuna CO
+            WHERE DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id
+            ORDER BY AV.dia_hora DESC;
         """
         self.cursor.execute(sql)
         return self.cursor.fetchall()

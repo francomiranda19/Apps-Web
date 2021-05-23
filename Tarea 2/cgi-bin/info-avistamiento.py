@@ -11,7 +11,7 @@ if id0 is None:
     id0 = 0
 id_avistamiento = int(id0)
 
-bbdd = Avistamiento("localhost", "root", "", "tarea2")
+bbdd = Avistamiento()
 info = bbdd.get_info_avistamiento(id_avistamiento)
 cantidad_avistamientos = bbdd.count_avistamientos(id_avistamiento)
 imagen = bbdd.get_info_imagen(id_avistamiento)
@@ -58,8 +58,8 @@ for i in range(cantidad_avistamientos):
     print(informacion, file=utf8stdout)
     for j in range(imagenes_por_avistamientos[i][0]):
         imagenes = f"""
-            <img src="../media/{str(imagen[imagen_actual][0])}" alt="Imagen de un {info[i][7]}">
-        """
+    <img src="../media/{str(imagen[imagen_actual][0])}" alt="Imagen de un {info[i][7]}">
+    """
         imagen_actual += 1
         print(imagenes, file=utf8stdout)
 
@@ -80,7 +80,6 @@ footer = """
 </div>
 
 </body>
-
 </html>
 """
 print(footer, file=utf8stdout)

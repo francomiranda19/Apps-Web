@@ -5,7 +5,7 @@ from db import Avistamiento
 utf8stdout = open(1, "w", encoding="utf-8", closefd=False)
 
 print("Content-type:text/html; charset=UTF-8")
-db = Avistamiento("localhost", "root", "", "tarea2")
+db = Avistamiento()
 data = db.get_last5()
 
 if len(data) == 0:

@@ -152,14 +152,8 @@ function agregar_imagen() {
     // Se aumenta la cantidad de imagenes y se crea el nuevo input
     imagenes++;
 
-    /*for (let i = 1; i < imagenes; i++) {
-        document.getElementsByName("foto-avistamiento-" + formularios + "." + i)[0].name = "foto-avistamiento-" + formularios + "." + (i + 1);
-    }*/
     let input = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
     let newInput = input[1].cloneNode();
-    /*for (let i = 1; i < imagenes; i++) {
-        document.getElementsByName("foto-avistamiento-" + formularios + "." + (i + 1))[0].name = "foto-avistamiento-" + formularios + "." + i;
-    }*/
     let fotos = document.getElementsByClassName("imagenes")[formularios - 1];
     let boton = document.getElementsByClassName("boton-agregar")[formularios - 1];
 
@@ -194,7 +188,7 @@ function crear_nuevo_formulario() {
         document.getElementsByName("dia-hora-avistamiento")[formularios - 1].value = "";
         document.getElementsByName("tipo-avistamiento")[formularios - 1].selectedIndex = 0;
         document.getElementsByName("estado-avistamiento")[formularios - 1].selectedIndex = 0;
-        
+
         let newFotos = document.getElementsByClassName("imagenes")[formularios - 1].childNodes;
         newFotos[1].value = "";
         while (newFotos.length > 2) {
@@ -382,24 +376,10 @@ function validar_estado() {
 
 function validar_foto() {
     let cantidad = document.getElementsByClassName("imagenes")[formularios - 1].childNodes[1].files.length;
-    //let cantidad = document.getElementsByName("foto-avistamiento")[formularios - 1].files.length;
 
     // Si no se ha agregado ninguna foto, hay un error
     if (cantidad === 0) {
         errores += "Debe enviar al menos una foto\n";
-        return false;
-    } else {
-        return true;
-    }
-}
-
-function validar_extension_imagen(node) {
-    let fileValue = node.value;
-    let extensiones = /(.jpg|.jpeg|.png|.gif)$/i;
-    // Se chequea si el archivo ingresado efectivamente es una imagen
-    if (!extensiones.exec(fileValue)) {
-        alert("El archivo ingresado no tiene un formato de imágen válido");
-        node.value = "";
         return false;
     } else {
         return true;
