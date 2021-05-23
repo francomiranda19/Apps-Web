@@ -25,6 +25,7 @@ if len(data) == 0:
     <meta charset="UTF-8">
     <title>Listado de avistamientos</title>
     <link rel="stylesheet" href="../static/style/listado-avistamientos.css">
+    <link rel="icon" type="image/png" href="../images/icono.png">
 </head>
 
 <body>
@@ -52,6 +53,7 @@ else:
     <meta charset="UTF-8">
     <title>Listado de avistamientos</title>
     <link rel="stylesheet" href="../static/style/listado-avistamientos.css">
+    <link rel="icon" type="image/png" href="../images/icono.png">
 </head>
 
 <body>

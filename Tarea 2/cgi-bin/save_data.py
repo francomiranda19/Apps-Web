@@ -160,6 +160,7 @@ if validar():
         <meta charset="UTF-8">
         <title>Recibido!</title>
         <link rel="stylesheet" href="../static/style/informacion-recibida.css">
+        <link rel="icon" type="image/png" href="../images/icono.png">
     </head>
     
     <body>

@@ -17,6 +17,7 @@ if len(data) == 0:
     <meta charset="UTF-8">
     <title>Portada</title>
     <link rel="stylesheet" href="../static/style/portada.css">
+    <link rel="icon" type="image/png" href="../images/icono.png">
 </head>
 
 <body>
@@ -46,6 +47,7 @@ else:
     <meta charset="UTF-8">
     <title>Portada</title>
     <link rel="stylesheet" href="../static/style/portada.css">
+    <link rel="icon" type="image/png" href="../images/icono.png">
 </head>
 
 <body>

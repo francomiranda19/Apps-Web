@@ -12,6 +12,7 @@ def print_error(errores):
     <meta charset="UTF-8">
     <title>Error</title>
     <link rel="stylesheet" href="../static/style/informacion-recibida.css">
+    <link rel="icon" type="image/png" href="../images/icono.png">
 </head>
 
 <body>

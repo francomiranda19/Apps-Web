@@ -24,6 +24,7 @@ static = f"""
     <meta charset="UTF-8">
     <title>Información de avistamiento</title>
     <link rel="stylesheet" href="../static/style/info-avistamiento.css">
+    <link rel="icon" type="image/png" href="../images/icono.png">
 </head>
 
 <body>
