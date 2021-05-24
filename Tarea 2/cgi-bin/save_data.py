@@ -12,7 +12,7 @@ now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 MAX_FILE_SIZE = 10 * 1000000  # 10 MB
 
-print("Content-type: text/html; charset=UTF-8")
+print("Content-type: text/html\r\n\r\n")
 
 cgitb.enable()
 utf8stdout = open(1, "w", encoding="utf-8", closefd=False)

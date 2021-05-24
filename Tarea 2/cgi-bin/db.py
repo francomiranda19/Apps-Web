@@ -12,9 +12,9 @@ class Avistamiento:
     def __init__(self):
         self.bbdd = mysql.connector.connect(
             host="localhost",
-            user="root",
-            password="",
-            database="tarea2"
+            user="cc500225_u",
+            password="llismetusp",
+            database="cc500225_db"
         )
         self.cursor = self.bbdd.cursor()
 
@@ -71,7 +71,7 @@ class Avistamiento:
 
             hash_archivo = str(total) + hashlib.sha256(filename.encode()).hexdigest()[0:30]
 
-            file_path = "media/" + hash_archivo
+            file_path = "../media/" + hash_archivo
             open(file_path, "wb").write(fileitem.file.read())
 
             tipo_archivo = filetype.guess(file_path)

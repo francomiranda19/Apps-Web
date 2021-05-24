@@ -5,7 +5,7 @@ from db import Avistamiento
 
 utf8stdout = open(1, "w", encoding="utf-8", closefd=False)
 
-print("Content-type:text/html; charset=UTF-8")
+print("Content-type: text/html\r\n\r\n")
 id0 = cgi.FieldStorage().getfirst("id")
 if id0 is None:
     id0 = 0

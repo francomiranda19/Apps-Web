@@ -4,7 +4,7 @@ from db import Avistamiento
 
 utf8stdout = open(1, "w", encoding="utf-8", closefd=False)
 
-print("Content-type:text/html; charset=UTF-8")
+print("Content-type: text/html\r\n\r\n")
 db = Avistamiento()
 data = db.get_last5()
 
