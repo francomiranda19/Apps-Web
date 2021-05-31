@@ -1,0 +1,141 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    background: #b8e994;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+body {
+    background: #78e08f;
+}
+
+.formulario {
+    padding: 10px;
+}
+
+.lugar, .datos-contacto, .info-avistamiento {
+    margin-bottom: 10px;
+}
+
+.entrada {
+    margin: 5px auto;
+}
+
+.foto {
+    width: 265px;
+    display: block;
+    padding: 2px;
+    margin-left: 40px;
+    position: relative;
+    top: -20px;
+}
+
+.boton-agregar {
+    position: relative;
+    top: -75px;
+    left: 320px;
+    cursor: pointer;
+    visibility: visible;
+}
+
+.boton-avistamiento {
+    position: relative;
+    top: -50px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.boton-enviar {
+    position: relative;
+    top: -40px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.botones-ventana {
+    display: flex;
+    margin: 10px 20px 30px 20px;
+}
+
+.boton-si {
+    position: relative;
+    left: -10px;
+    cursor: pointer;
+}
+
+.boton-no {
+    position: relative;
+    left: 10px;
+    cursor: pointer;
+}
+
+.ventana-emergente {
+    background: rgba(33, 41, 52, .85);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    position: fixed;
+    z-index: 999;
+    visibility: hidden;
+}
+
+.ventana-emergente .contenido {
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(33, 41, 52, .75);
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 770px;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    font-size: 24px;
+    padding: 10px 10px 30px 10px;
+}
+
+ul {
+    list-style: none;
+    overflow: hidden;
+}
+
+ul li {
+    background: rgba(0,0,0,0.9);
+    float: left;
+    font-size: 18px;
+    text-align: center;
+}
+
+ul li a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+ul li:hover {
+    background: #034e3e;
+}
+
+button {
+    border-radius: 0;
+    background: rgba(0,0,0,0.9);
+    color: white;
+    padding: 19px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #034e3e;
+}
