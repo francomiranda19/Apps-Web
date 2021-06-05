@@ -19,20 +19,11 @@ body {
 }
 
 .grafico {
-    margin: 0px auto 20px auto;
-}
-
-img {
+    margin: 0 auto 20px auto;
     width: 45%;
     height: 45%;
-    display: block;
-    margin: 10px auto;
     border-radius: 10px;
     box-shadow: #00000012 0 0 5px 6px;
-}
-
-p {
-    font-size: 24px;
 }
 
 ul {
