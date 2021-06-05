@@ -146,6 +146,7 @@ function actual_time() {
     let minute = today.getMinutes();
     let minuto = (minute < 10) ? "0" + minute : minute;
     fecha.placeholder = year + "-" + mes + "-" + dia + " " + hora + ":" + minuto;
+    return year + "-" + mes + "-" + dia + " " + hora + ":" + minuto;
 }
 
 function agregar_imagen() {
@@ -208,7 +209,7 @@ function crear_nuevo_formulario() {
                 </select>
             </div>
             <div class="entrada imagenes">
-                Foto: <input class="foto" type="file" name="foto-avistamiento" id="foto-avistamiento-${formularios}.1" required>
+                Foto: <input class="foto" type="file" name="foto-avistamiento" required>
             </div>
             <div class="boton-agregar" onclick="agregar_imagen()">
                 <ul>
@@ -220,6 +221,7 @@ function crear_nuevo_formulario() {
         // Se inserta el nuevo formulario al final del formulario anterior
         let ventana_emergente = document.getElementsByClassName("ventana-emergente")[0];
         ventana_emergente.insertAdjacentHTML("beforebegin", newForm);
+        document.getElementsByName("dia-hora-avistamiento")[formularios - 1].placeholder = actual_time();
 
         // La cantidad de imagenes vuelve a ser la inicial
         imagenes = 1;
