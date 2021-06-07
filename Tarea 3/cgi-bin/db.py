@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 import hashlib
+import json
 import os
 import filetype
 import mysql.connector
+from datetime import datetime
 from utils import print_error
 
 
@@ -146,6 +148,27 @@ class Avistamiento:
             SELECT DISTINCT AV.dia_hora, CO.nombre, AV.sector, AV.nombre FROM avistamiento AV, detalle_avistamiento DA, comuna CO
             WHERE DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id
             ORDER BY AV.dia_hora DESC;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def get_avistamientos_por_dia(self):
+        sql = """
+            SELECT DAYOFWEEK(dia_hora) AS dia, COUNT(*) AS conteo FROM detalle_avistamiento GROUP BY dia;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def get_conteo_tipos(self):
+        sql = """
+            SELECT tipo, COUNT(*) as conteo FROM detalle_avistamiento GROUP BY tipo;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def get_conteo_estados(self, estado):
+        sql = f"""
+            SELECT MONTH(dia_hora) AS mes, COUNT(*) AS conteo FROM detalle_avistamiento WHERE estado='{estado}' GROUP BY mes
         """
         self.cursor.execute(sql)
         return self.cursor.fetchall()
