@@ -172,3 +172,51 @@ class Avistamiento:
         """
         self.cursor.execute(sql)
         return self.cursor.fetchall()
+
+    def get_comunas_con_avistamientos(self):
+        sql = """
+            SELECT DISTINCT DA.avistamiento_id, CO.nombre FROM avistamiento AV, detalle_avistamiento DA, comuna CO
+            WHERE DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def get_avistamientos_en_una_comuna(self, comuna):
+        sql = f"""
+            SELECT DISTINCT AV.id, DA.dia_hora, DA.tipo, DA.estado FROM detalle_avistamiento DA, comuna CO, avistamiento AV
+            WHERE CO.nombre='{comuna}' AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id GROUP BY DA.id;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def get_fotos_por_comuna(self, comuna):
+        sql = f"""
+            SELECT DISTINCT F.ruta_archivo FROM detalle_avistamiento DA, comuna CO, avistamiento AV, foto F 
+            WHERE CO.nombre='{comuna}' AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id AND F.detalle_avistamiento_id=DA.id;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def count_avistamientos_por_comuna(self, comuna):
+        sql = f"""
+            SELECT COUNT(*) FROM avistamiento AV, detalle_avistamiento DA, comuna CO
+            WHERE AV.id=DA.avistamiento_id AND CO.nombre='{comuna}' AND AV.comuna_id=CO.id;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()[0][0]
+
+    def get_ids_por_comuna(self, comuna):
+        sql = f"""
+            SELECT DISTINCT AV.id FROM detalle_avistamiento DA, comuna CO, avistamiento AV
+            WHERE CO.nombre='{comuna}' AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id GROUP BY DA.id;
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()
+
+    def fotos_por_avistamiento_segun_comuna(self, comuna):
+        sql = f"""
+            SELECT COUNT(*) AS conteo FROM foto F, detalle_avistamiento DA, avistamiento AV, comuna CO
+            WHERE F.detalle_avistamiento_id=DA.id AND DA.avistamiento_id=AV.id AND CO.nombre='{comuna}' AND CO.id=AV.comuna_id GROUP BY AV.id
+        """
+        self.cursor.execute(sql)
+        return self.cursor.fetchall()

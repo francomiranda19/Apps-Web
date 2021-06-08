@@ -45,9 +45,9 @@ function graficos() {
             yAxis: {plotLines: [{value: 0, width: 1, color: "#808080"}], title: {text: "<b>Cantidad</b>"}},
             legend: {layout: "vertical", align: "right", verticalAlign: "middle", borderWidth: 0},
             series: [
-                {type: "column", colorByPoint: false, color: "#e84118", name: "Vivo", data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
-                {type: "column", colorByPoint: false, color: "#0097e6", name: "Muerto", data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
-                {type: "column", colorByPoint: false, color: "#44bd32", name: "No sé", data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
+                {type: "column", color: "#e84118", name: "Vivo", data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+                {type: "column", color: "#0097e6", name: "Muerto", data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+                {type: "column", color: "#44bd32", name: "No sé", data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]}
             ],
             plotOptions: {line: {dataLabels: {enabled: true}}}
         };

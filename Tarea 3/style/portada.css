@@ -46,8 +46,7 @@ nav ul li:hover {
 
 table {
     text-align: center;
-    margin: auto;
-    margin-bottom: 25px;
+    margin: auto auto 25px auto;
     box-shadow: #00000012 0 0 5px 6px;
 }
 
@@ -75,8 +74,14 @@ h3 {
 
 p {
     position: relative;
-    top: 300px;
+    top: 80px;
     font-size: 24px;
     font-weight: bold;
     text-align: center;
+}
+
+#mapa {
+    margin: 100px auto 25px auto;
+    width: 75%;
+    height: 580px;
 }

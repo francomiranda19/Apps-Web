@@ -18,9 +18,11 @@ if len(data) == 0:
     <title>Portada</title>
     <link rel="stylesheet" href="../style/portada.css">
     <link rel="icon" type="image/png" href="../images/icono.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </head>
 
-<body>
+<body onload="mapa()">
 <h1>Bienvenido a la mejor página de información de avistamientos del mundo!</h1>
 <header>
     <nav>
@@ -34,6 +36,8 @@ if len(data) == 0:
 
 <body>
 <p>No hay avistamientos registrados :c</p>
+<div id="mapa"></div>
+<script src="../scripts/mapa.js"></script>
 </body>
 </html>
 """
@@ -48,9 +52,11 @@ else:
     <title>Portada</title>
     <link rel="stylesheet" href="../style/portada.css">
     <link rel="icon" type="image/png" href="../images/icono.png">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 </head>
 
-<body>
+<body onload="mapa()">
 <h1>Bienvenido a la mejor página de información de avistamientos del mundo!</h1>
 <header>
     <nav>
@@ -91,6 +97,8 @@ else:
     end = """
     </table>
 </div>
+<div id="mapa"></div>
+<script src="../scripts/mapa.js"></script>
 </body>
 </html>
 """
