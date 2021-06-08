@@ -1,6 +1,6 @@
 function graficos() {
     let xhr = new XMLHttpRequest();
-    xhr.open("GET", "../cgi-bin/datos.py");
+    xhr.open("GET", "cgi-bin/datos.py");
     xhr.onload = (data) => {
         let json = JSON.parse(data.currentTarget.responseText);
 

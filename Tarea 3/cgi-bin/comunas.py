@@ -10,7 +10,7 @@ print("Content-type: text/html\r\n\r\n")
 bbdd = Avistamiento()
 comunas_con_avistamientos = bbdd.get_comunas_con_avistamientos()
 
-f = open("latitud-longitud.json", "r", encoding="utf-8")
+f = open("../latitud-longitud.json", "r", encoding="utf-8")
 comunas_totales = json.load(f)
 
 nombres_comunas = []
@@ -43,7 +43,6 @@ for i in range(len(comunas_con_avistamientos)):
         dia_hora.append(avistamientos[j][1].strftime("%Y-%m-%d %H:%M:%S"))
         tipo.append(avistamientos[j][2])
         estado.append(avistamientos[j][3])
-
     for j in range(imagenes_totales_por_avistamiento):
         ruta.append(fotos_por_comuna[j][0])
 

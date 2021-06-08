@@ -14,8 +14,8 @@ class Avistamiento:
     def __init__(self):
         self.bbdd = mysql.connector.connect(
             host="localhost",
-            user="root",  # cc5002_u
-            password="",  # llismetusp
+            user="cc500225_u",  # cc500225_u
+            password="llismetusp",  # llismetusp
             database="cc500225_db"
         )
         self.cursor = self.bbdd.cursor()
@@ -73,7 +73,7 @@ class Avistamiento:
 
             hash_archivo = str(total) + hashlib.sha256(filename.encode()).hexdigest()[0:30]
 
-            file_path = "media/" + hash_archivo
+            file_path = "../media/" + hash_archivo
             open(file_path, "wb").write(fileitem.file.read())
 
             tipo_archivo = filetype.guess(file_path)
@@ -207,7 +207,7 @@ class Avistamiento:
 
     def get_ids_por_comuna(self, comuna):
         sql = f"""
-            SELECT DISTINCT AV.id FROM detalle_avistamiento DA, comuna CO, avistamiento AV
+            SELECT DISTINCT DA.id FROM detalle_avistamiento DA, comuna CO, avistamiento AV
             WHERE CO.nombre='{comuna}' AND DA.avistamiento_id=AV.id AND AV.comuna_id=CO.id GROUP BY DA.id;
         """
         self.cursor.execute(sql)
@@ -216,7 +216,7 @@ class Avistamiento:
     def fotos_por_avistamiento_segun_comuna(self, comuna):
         sql = f"""
             SELECT COUNT(*) AS conteo FROM foto F, detalle_avistamiento DA, avistamiento AV, comuna CO
-            WHERE F.detalle_avistamiento_id=DA.id AND DA.avistamiento_id=AV.id AND CO.nombre='{comuna}' AND CO.id=AV.comuna_id GROUP BY AV.id
+            WHERE F.detalle_avistamiento_id=DA.id AND DA.avistamiento_id=AV.id AND CO.nombre='{comuna}' AND CO.id=AV.comuna_id GROUP BY DA.id
         """
         self.cursor.execute(sql)
         return self.cursor.fetchall()
